@@ -14,7 +14,7 @@
    width="800"
    height="600"
    id="svg3904"
-   inkscape:version="0.48.5 r10040"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="schema.svg">
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -26,14 +26,14 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1051"
+     inkscape:window-height="1017"
      id="namedview221"
      showgrid="false"
      inkscape:zoom="1.1125147"
-     inkscape:cx="423.36007"
-     inkscape:cy="162.99763"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
+     inkscape:cx="289.87869"
+     inkscape:cy="151.07155"
+     inkscape:window-x="-8"
+     inkscape:window-y="32"
      inkscape:window-maximized="1"
      inkscape:current-layer="g3925" />
   <metadata
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -987,14 +987,14 @@
        y2="158.39441"
        id="line4084" />
     <text
-       x="301.40274"
-       y="587.83356"
+       x="303.20047"
+       y="641.76544"
        id="kessel_pump"
        xml:space="preserve"
-       style="font-size:12px;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#333333"
+       style="font-size:12px;line-height:125%;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#333333"
        sodipodi:linespacing="125%"><tspan
-         x="299.06778"
-         y="587.83356"
+         x="300.86551"
+         y="641.76544"
          id="tspan4234-5"
          style="font-size:12px;text-align:center;text-anchor:middle;fill:#333333">?</tspan></text>
     <g
@@ -1407,13 +1407,15 @@
          id="tspan4217-4"
          style="fill:#333333">? °C hg</tspan></text>
     <text
-       x="189.15196"
+       x="207.12926"
        y="61.529842"
        id="datum"
        xml:space="preserve"
-       style="font-size:14px;font-style:oblique;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#333333;font-family:Arial"
-       sodipodi:linespacing="125%"><tspan
-         x="189.15196"
+       style="font-style:oblique;font-size:14px;line-height:125%;font-family:Arial;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#333333"
+       sodipodi:linespacing="125%"
+       inkscape:transform-center-x="9.8875098"
+       inkscape:transform-center-y="-0.89886453"><tspan
+         x="207.12926"
          y="61.529842"
          id="tspan4220-5"
          style="fill:#333333">? °C</tspan></text>
@@ -1461,16 +1463,16 @@
          id="tspan4200-0"
          style="font-size:14px;font-style:oblique;fill:#333333">? %</tspan></text>
     <text
-       x="525.35431"
-       y="478.37985"
+       x="215.24605"
+       y="559.27765"
        id="pu_fuellgrad"
        xml:space="preserve"
-       style="font-size:14px;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#333333;font-family:Arial"
+       style="font-size:14px;line-height:125%;font-family:Arial;letter-spacing:0px;word-spacing:0px;fill:#333333"
        sodipodi:linespacing="125%"><tspan
-         x="525.35431"
-         y="478.37985"
+         x="215.24605"
+         y="559.27765"
          id="tspan4200-0-4"
-         style="font-size:14px;font-style:oblique;fill:#333333">? %</tspan></text>
+         style="font-style:oblique;font-size:14px;fill:#333333">? %</tspan></text>
     <text
        x="211.74492"
        y="599.39038"
@@ -1505,16 +1507,16 @@
          id="tspan4200-0-4-8-4-9"
          style="font-size:14px;font-style:oblique;fill:#333333">? state</tspan></text>
     <text
-       x="389.10321"
-       y="603.98376"
+       x="320.78952"
+       y="585.1076"
        id="ke_rl"
        xml:space="preserve"
-       style="font-size:14px;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#333333;font-family:Arial"
+       style="font-size:14px;line-height:125%;font-family:Arial;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#333333"
        sodipodi:linespacing="125%"><tspan
-         x="389.10321"
-         y="603.98376"
+         x="320.78952"
+         y="585.1076"
          id="tspan4225-7-8-2"
-         style="font-size:14px;font-style:oblique;text-align:end;text-anchor:end;fill:#333333">? °C</tspan></text>
+         style="font-style:oblique;font-size:14px;text-align:end;text-anchor:end;fill:#333333">? °C</tspan></text>
     <text
        x="520.80377"
        y="268.70731"
@@ -1591,5 +1593,50 @@
          style="fill:#ff9000;stroke-linejoin:round"
          inkscape:connector-curvature="0" />
     </g>
+    <text
+       x="409.7771"
+       y="60.170746"
+       id="datumHg"
+       xml:space="preserve"
+       style="font-style:oblique;font-size:14px;line-height:125%;font-family:Arial;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#333333"
+       sodipodi:linespacing="125%"
+       inkscape:transform-center-x="9.8875098"
+       inkscape:transform-center-y="-0.89886453"
+       inkscape:label="#datumHG"><tspan
+         x="409.7771"
+         y="60.170746"
+         id="tspan4220-5-3"
+         style="fill:#333333">? °C</tspan></text>
+    <text
+       x="368.42932"
+       y="517.69281"
+       id="ke_vl"
+       xml:space="preserve"
+       style="font-size:14px;line-height:125%;font-family:Arial;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#333333"
+       sodipodi:linespacing="125%"><tspan
+         x="368.42932"
+         y="517.69281"
+         id="tspan4225-7-8-2-1"
+         style="font-style:oblique;font-size:14px;text-align:end;text-anchor:end;fill:#333333">? °C</tspan></text>
+    <text
+       x="392.69867"
+       y="593.19739"
+       id="ke_vrUVR"
+       xml:space="preserve"
+       style="font-size:14px;line-height:125%;font-family:Arial;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#333333"
+       sodipodi:linespacing="125%"><tspan
+         x="392.69867"
+         y="593.19739"
+         id="tspan4225-7-8-2-2"
+         style="font-style:oblique;font-size:14px;text-align:end;text-anchor:end;fill:#333333">? °C</tspan></text>
+    <text
+       x="787.02081"
+       y="211.61052"
+       id="aussen_temp_hg_mittel"
+       xml:space="preserve"
+       style="font-style:oblique;font-size:14px;line-height:125%;font-family:Arial;letter-spacing:0px;word-spacing:0px;fill:#333333;text-anchor:start;text-align:start;writing-mode:lr;"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3702">? °C hg mittel</tspan></text>
   </g>
 </svg>
