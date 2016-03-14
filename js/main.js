@@ -162,7 +162,7 @@ var menu = {
 		init: function()
 		{
 			this.fetchData();
-			setTimeout(this.timer, 15000);
+			setTimeout(this.timer, 30000);
 		},
 		fetchData: function()
 		{
@@ -178,7 +178,7 @@ var menu = {
 			{
 				actualValues.fetchData();
 			}
-			setTimeout(actualValues.timer, 15000);
+			setTimeout(actualValues.timer, 30000);
 		},
 		display: function(data)
 		{
@@ -322,13 +322,13 @@ var menu = {
 		}
 	}
 
-	google.load('visualization', '1.0', {'packages':['corechart']});
+	//google.load('visualization', '1.0', {'packages':['corechart']});
 
 	//Set a callback to run when the Google Visualization API is loaded.
-	google.setOnLoadCallback(googleLoaded);
+	//google.setOnLoadCallback(googleLoaded);
 	
 	
-	function googleLoaded() {
+	//function googleLoaded() {
 
 		menu.init();
 
@@ -338,4 +338,4 @@ var menu = {
 			
 			$(window).on("hashchange", menu.handle);
 		});
-      }
+     // }

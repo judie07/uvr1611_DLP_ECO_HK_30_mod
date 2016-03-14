@@ -30,9 +30,9 @@
 	<link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.9.2.custom.min.css">
 	
     <!-- offline gviz -->
-	<link src="gviz_tooltip.css" rel="stylesheet">
-    <script type="text/javascript" src="jsapi.js"></script>
-    <script type="text/javascript" src="uds_api_contents.js"></script>
+	<link src="js/gviz_tooltip.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jsapi.js"></script>
+    <script type="text/javascript" src="js/uds_api_contents.js"></script>
     <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script> -->
 	
   </head>
