@@ -10,7 +10,6 @@ $data = load_cache("uvr1611_latest", Config::getInstance()->app->latestcache);
 
 if(!$data)
 {
-	
 	$uvr = Uvr1611::getInstance();
 	$gdata = $uvr->getLatest();
 	//Hargassner

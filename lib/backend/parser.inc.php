@@ -68,7 +68,7 @@ class Parser
 		for($i=1; $i<=16; $i++) {
 			$key = ("analog".$i);
 			$this->$key = self::convertAnalog($package["analog".$i]);
-			echo "package($i) ";
+			//echo "package($i) ";
 		}
 		
 		// 16 Digital channels (only 13 in use)
