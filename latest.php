@@ -1,6 +1,6 @@
 <?php
 include_once("lib/backend/uvr1611-connection.inc.php");
-
+include_once ("lib/backend/database.inc.php");
 header('Cache-Control: no-cache, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Content-type: application/json; charset=utf-8');
@@ -10,7 +10,14 @@ $data = load_cache("uvr1611_latest", Config::getInstance()->app->latestcache);
 if(!$data)
 {
 	$uvr = Uvr1611::getInstance();
-	$data = json_encode($uvr->getLatest());
+	$gdata = $uvr->getLatest();
+	//Hargassner
+	// connect to database
+	$database = Database::getInstance ();
+	$hgdata = $database->lastHgDataset();
+	$tmpdata = array_merge($gdata["frame1"], $hgdata);
+	$gdata["frame1"] = $tmpdata;
+	$data = json_encode($gdata);
 	save_cache($data,"uvr1611_latest");
 }
 

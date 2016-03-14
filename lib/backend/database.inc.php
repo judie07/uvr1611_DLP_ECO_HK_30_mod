@@ -124,8 +124,9 @@ class Database
 		// build chart query
 		while($statement->fetch()) {
 			$columnNames[] = "c$i";
-			$columns[] = "$frame.$name AS c$i";
-			$joins[$frame]   = "INNER JOIN t_data AS $frame ON ($frame.date = datasets.date AND $frame.frame=\"$frame\")";
+			$columns[] = "datasets.$name AS c$i";
+			//$columns[] = "$frame.$name AS c$i";
+			$joins[$frame]   = "INNER JOIN v_data AS $frame ON ($frame.date = datasets.date AND $frame.frame=\"$frame\")";
 			$i++;
 		}
 
@@ -133,13 +134,21 @@ class Database
 		$sql .= join(", ",$columnNames);
 		$sql .= " FROM (SELECT @row := @row+1 AS rownum, UNIX_TIMESTAMP(datasets.date) AS date, ";
 		$sql .= join(", ", $columns);
-		$sql .= " FROM (SELECT @row :=0) r, t_data AS datasets ";
-		$sql .= join(" ", $joins);
+		$sql .= " FROM (SELECT @row :=0) r, v_data AS datasets ";
+		//$sql .= join(" ", $joins);
 		$sql .= " WHERE datasets.date > DATE_SUB(\"$date\", INTERVAL $period DAY) ".
 				"AND datasets.date < DATE_ADD(\"$date\", INTERVAL 1 DAY))".
 				"ranked WHERE rownum %$reduction =1 GROUP BY date;";
 		$statement->close();
 		// fetch chart data
+		$rows = array();
+		if(	$result = $this->mysqli->query($sql)) {
+			while($r = $result->fetch_array(MYSQLI_NUM)) {
+				$rows[] = $r;
+			}
+			$result->close();
+		}
+		
 		$rows = array();
 		if(	$result = $this->mysqli->query($sql)) {
 			while($r = $result->fetch_array(MYSQLI_NUM)) {
@@ -175,8 +184,9 @@ class Database
 		// build chart query
 		while($statement->fetch()) {
 			$columnNames[] = "c$i";
-			$columns[] = "$frame.$name AS c$i";
-			$joins[$frame]   = "INNER JOIN t_data AS $frame ON ($frame.date = datasets.date AND $frame.frame=\"$frame\")";
+			$columns[] = "datasets.$name AS c$i";
+			//$columns[] = "$frame.$name AS c$i";
+			$joins[$frame]   = "INNER JOIN v_data AS $frame ON ($frame.date = datasets.date AND $frame.frame=\"$frame\")";
 			$i++;
 		}
 
@@ -184,8 +194,8 @@ class Database
 		$sql .= join(", ",$columnNames);
 		$sql .= " FROM (SELECT @row := @row+1 AS rownum, UNIX_TIMESTAMP(datasets.date) AS date, ";
 		$sql .= join(", ", $columns);
-		$sql .= " FROM (SELECT @row :=0) r, t_data AS datasets ";
-		$sql .= join(" ", $joins);
+		$sql .= " FROM (SELECT @row :=0) r, v_data AS datasets ";
+		//$sql .= join(" ", $joins);
 		$sql .= " WHERE datasets.date > DATE_SUB(\"$date\", INTERVAL $period DAY) ".
 				"AND datasets.date < DATE_ADD(\"$date\", INTERVAL 1 DAY))".
 				"ranked WHERE rownum %$reduction =1 GROUP BY date;";
@@ -252,7 +262,8 @@ class Database
 		// build chart query
 		while($statement->fetch()) {
 			$sums[] = "SUM(c$i)";
-			$columns[] = "$frame.$name AS c$i";
+			$columns[] = "datasets.$name AS c$i";
+			//$columns[] = "$frame.$name AS c$i";
 			$joins[$frame] = "INNER JOIN t_energies AS $frame ON ($frame.date = datasets.date AND $frame.frame=\"$frame\")";
 			$i++;
 		}
@@ -264,9 +275,9 @@ class Database
 			$sql .= "SELECT datasets.date, ";
 			$sql .= join(", ", $columns);
 			$sql .= " FROM t_energies AS datasets ";
-			$sql .= join(" ", $joins);
+			//$sql .= join(" ", $joins);
 			$sql .= " WHERE datasets.date < DATE_ADD(\"$date\",INTERVAL 1 DAY) ".
-					"AND datasets.date > DATE_SUB(\"$date\", INTERVAL 1 YEAR) ".
+					"AND datasets.date > DATE_SUB(\"$date\", INTERVAL 2 YEAR) ".
 					"GROUP BY datasets.date";
 			$sql .= ") AS temp GROUP BY MONTH(temp.date), YEAR(temp.date) ORDER BY temp.date ASC;";
 		}
@@ -274,7 +285,7 @@ class Database
 			$sql = "SELECT DATE_FORMAT(datasets.date, '%d. %b') AS date, ";
 			$sql .= join(", ", $columns);
 			$sql .= " FROM t_energies AS datasets ";
-			$sql .= join(" ", $joins);
+			//$sql .= join(" ", $joins);
 			$sql .= " WHERE datasets.date < DATE_ADD(\"$date\",INTERVAL 1 DAY) ".
 					"AND datasets.date > DATE_SUB(\"$date\", INTERVAL 10 DAY) ".
 					"GROUP BY datasets.date ORDER BY datasets.date ASC;";
@@ -346,10 +357,23 @@ class Database
 	 */
 	public function lastDataset()
 	{
-		$result = $this->mysqli->query("SELECT MAX(date) FROM t_data;");
+		$result = $this->mysqli->query("SELECT MAX(date) FROM v_data;");
 		$last = $result->fetch_array();
 		$result->close();
 		return strtotime($last[0]);
+	}
+	
+		/**
+	 * Query the last hargassner dataset from db
+	 * 
+	 * @return number
+	 */
+	public function lastHgDataset() {
+		//$result = $this->mysqli->query ( "SELECT * from t_hg_data where date_format(t_hg_data.date,'%d.%m.%Y %H:%i:%S') = (SELECT MAX(date_format(t_hg_data.date,'%d.%m.%Y %H:%i:%S')) FROM t_hg_data);" );
+		$result = $this->mysqli->query ( "SELECT * from v_data where id = (select MAX(v_data.id) from v_data);" );
+		$data = $result->fetch_array ( MYSQLI_ASSOC );
+		$result->close ();
+		return $data;
 	}
 	
 	/**

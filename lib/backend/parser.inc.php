@@ -9,9 +9,20 @@
  */
 class Parser
 {
+
+	
+	function ob_file_callback($buffer)
+	{
+		global $ob_file;
+		fwrite($ob_file,$buffer);
+	}
+	
+	
 	/**
 	 * Parser constant
 	 */
+	//const NEGATIVE_VALUE_MASK = 0xFFFFF000;
+	const NEGATIVE_VALUE_MASK = 0x0000AFFF;
 	const SIGN_BIT = 0x8000;
 	const POSITIVE_VALUE_MASK = 0x00000FFF;
 	const DIGITAL_ON = 1;
@@ -50,11 +61,14 @@ class Parser
 		// unpack binary string
 		$package = unpack("v16analog/vdigital/C4speed/Cactive".
 						  "/Vpower1/vkWh1/vMWh1/Vpower2/vkWh2/vMWh2",$data);
-		
+		//echo "$this->date";
+		//echo "$data";
+		//print_r( $package);
 		// 16 Analog channels
 		for($i=1; $i<=16; $i++) {
 			$key = ("analog".$i);
 			$this->$key = self::convertAnalog($package["analog".$i]);
+			echo "package($i) ";
 		}
 		
 		// 16 Digital channels (only 13 in use)
@@ -104,15 +118,34 @@ class Parser
 	private static function convertAnalog($value)
 	{
 		// calculate result value
-		$result = $value & self::POSITIVE_VALUE_MASK;
+		//$ob_file = fopen('/var/log/lighttpd/uvr1611.log','w');
+		//ob_start('ob_file_callback');
+		//echo "Value  $value ";
+		// calculate result value
 		if($value & self::SIGN_BIT) {
-			$result = -(($result ^ POSITIVE_VALUE_MASK)+1);
+			$result = -(($value ^ self::NEGATIVE_VALUE_MASK)+1);
+			//echo "negative result:  $result /10";
+			
+			/** $wert = $value ^ 0xfff;
+			* $wert = -$wert -1 ;
+			* $printT = $wert / 10;
+			* echo "wert1: $printT";
+			* $wert2 = $value & 0x0f;
+			* $wert2 = $value ^ 0xfff;
+			* $wert2 = -$wert -1 ;
+			* $print2 = $wert2 / 10;
+			* echo "wert2:  $print2 ";
+			*/
 		}
-		
+		else {
+			$result = $value & self::POSITIVE_VALUE_MASK;
+			//echo "positive value $result ";	
+		}
 		// choose type
 		switch($value & self::TYPE_MASK)
 		{
 			case self::TYPE_TEMP:
+				//echo "type ist TEMP \n";
 				return $result/10;
 			case self::TYPE_VOLUME:
 				return $result*4;
@@ -134,6 +167,8 @@ class Parser
 				return $result;
 		}
 	}
+	
+	
 	
 	/**
 	 * Check if bit is set on a given position
