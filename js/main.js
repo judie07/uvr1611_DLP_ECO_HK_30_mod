@@ -162,7 +162,7 @@ var menu = {
 		init: function()
 		{
 			this.fetchData();
-			setTimeout(this.timer, 30000);
+			setTimeout(this.timer, 15000);
 		},
 		fetchData: function()
 		{
@@ -178,7 +178,7 @@ var menu = {
 			{
 				actualValues.fetchData();
 			}
-			setTimeout(actualValues.timer, 30000);
+			setTimeout(actualValues.timer, 15000);
 		},
 		display: function(data)
 		{

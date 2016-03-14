@@ -148,6 +148,14 @@ class Database
 			}
 			$result->close();
 		}
+		
+		$rows = array();
+		if(	$result = $this->mysqli->query($sql)) {
+			while($r = $result->fetch_array(MYSQLI_NUM)) {
+				$rows[] = $r;
+			}
+			$result->close();
+		}
 		return $rows;
 	}
 	
@@ -269,7 +277,7 @@ class Database
 			$sql .= " FROM t_energies AS datasets ";
 			//$sql .= join(" ", $joins);
 			$sql .= " WHERE datasets.date < DATE_ADD(\"$date\",INTERVAL 1 DAY) ".
-					"AND datasets.date > DATE_SUB(\"$date\", INTERVAL 1 YEAR) ".
+					"AND datasets.date > DATE_SUB(\"$date\", INTERVAL 2 YEAR) ".
 					"GROUP BY datasets.date";
 			$sql .= ") AS temp GROUP BY MONTH(temp.date), YEAR(temp.date) ORDER BY temp.date ASC;";
 		}
@@ -361,7 +369,8 @@ class Database
 	 * @return number
 	 */
 	public function lastHgDataset() {
-		$result = $this->mysqli->query ( "SELECT * from t_hg_data where t_hg_data.date = (SELECT MAX(date) FROM t_hg_data);" );
+		//$result = $this->mysqli->query ( "SELECT * from t_hg_data where date_format(t_hg_data.date,'%d.%m.%Y %H:%i:%S') = (SELECT MAX(date_format(t_hg_data.date,'%d.%m.%Y %H:%i:%S')) FROM t_hg_data);" );
+		$result = $this->mysqli->query ( "SELECT * from v_data where id = (select MAX(v_data.id) from v_data);" );
 		$data = $result->fetch_array ( MYSQLI_ASSOC );
 		$result->close ();
 		return $data;
