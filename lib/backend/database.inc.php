@@ -208,6 +208,13 @@ class Database
 			}
 			$result->close();
 		}
+		$rows = array();
+			if($result = $this->mysqli->query($sql)) {
+			while($r = $result->fetch_array(MYSQLI_NUM)) {
+				$rows[] = $r;
+			}
+			$result->close();
+		}
 		return $rows;
 	}
 	
