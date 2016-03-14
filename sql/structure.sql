@@ -689,1378 +689,742 @@ GROUP BY cast(`uvr1611`.`t_data`.`date` AS date), `uvr1611`.`t_data`.`frame`;
 
 ------------------------------------------------------------------
 --  VIEW v_data
+-- Hargassner digits are offset to their position (e.g. d013 -- bit 13 on binary 0 -- zero value = 13, one value = 14
+-- for bether view in line graps
 ------------------------------------------------------------------
 DROP VIEW IF EXISTS `v_data`;
-CREATE VIEW `v_data` AS 
-SELECT
-  ifnull(
-    `u`.`id`,
-    `h`.`id`)
-    AS `id`,
-  ifnull(
-    `u`.`date`,
-    `h`.`date`)
-    AS `date`,
-  ifnull(
-    `u`.`frame`,
-    convert(`h`.`frame` USING utf8))
-    AS `frame`,
-  `u`.`analog1` AS `analog1`,
-  `u`.`analog2` AS `analog2`,
-  `u`.`analog3` AS `analog3`,
-  `u`.`analog4` AS `analog4`,
-  `u`.`analog5` AS `analog5`,
-  `u`.`analog6` AS `analog6`,
-  `u`.`analog7` AS `analog7`,
-  `u`.`analog8` AS `analog8`,
-  `u`.`analog9` AS `analog9`,
-  `u`.`analog10` AS `analog10`,
-  `u`.`analog11` AS `analog11`,
-  `u`.`analog12` AS `analog12`,
-  `u`.`analog13` AS `analog13`,
-  `u`.`analog14` AS `analog14`,
-  `u`.`analog15` AS `analog15`,
-  `u`.`analog16` AS `analog16`,
-  `u`.`digital1` AS `digital1`,
-  `u`.`digital2` AS `digital2`,
-  `u`.`digital3` AS `digital3`,
-  `u`.`digital4` AS `digital4`,
-  `u`.`digital5` AS `digital5`,
-  `u`.`digital6` AS `digital6`,
-  `u`.`digital7` AS `digital7`,
-  `u`.`digital8` AS `digital8`,
-  `u`.`digital9` AS `digital9`,
-  `u`.`digital10` AS `digital10`,
-  `u`.`digital11` AS `digital11`,
-  `u`.`digital12` AS `digital12`,
-  `u`.`digital13` AS `digital13`,
-  `u`.`digital14` AS `digital14`,
-  `u`.`digital15` AS `digital15`,
-  `u`.`digital16` AS `digital16`,
-  `u`.`speed1` AS `speed1`,
-  `u`.`speed2` AS `speed2`,
-  `u`.`speed3` AS `speed3`,
-  `u`.`speed4` AS `speed4`,
-  `u`.`power1` AS `power1`,
-  `u`.`power2` AS `power2`,
-  `u`.`energy1` AS `energy1`,
-  `u`.`energy2` AS `energy2`,
-  `h`.`1` AS `1`,
-  `h`.`2` AS `2`,
-  `h`.`3` AS `3`,
-  `h`.`4` AS `4`,
-  `h`.`5` AS `5`,
-  `h`.`6` AS `6`,
-  `h`.`7` AS `7`,
-  `h`.`8` AS `8`,
-  `h`.`9` AS `9`,
-  `h`.`10` AS `10`,
-  `h`.`11` AS `11`,
-  `h`.`12` AS `12`,
-  `h`.`13` AS `13`,
-  `h`.`14` AS `14`,
-  `h`.`15` AS `15`,
-  `h`.`16` AS `16`,
-  `h`.`17` AS `17`,
-  `h`.`18` AS `18`,
-  `h`.`19` AS `19`,
-  `h`.`20` AS `20`,
-  `h`.`21` AS `21`,
-  `h`.`22` AS `22`,
-  `h`.`23` AS `23`,
-  `h`.`24` AS `24`,
-  `h`.`25` AS `25`,
-  `h`.`26` AS `26`,
-  `h`.`27` AS `27`,
-  `h`.`28` AS `28`,
-  `h`.`29` AS `29`,
-  `h`.`30` AS `30`,
-  `h`.`31` AS `31`,
-  `h`.`32` AS `32`,
-  `h`.`33` AS `33`,
-  `h`.`34` AS `34`,
-  `h`.`35` AS `35`,
-  `h`.`36` AS `36`,
-  `h`.`37` AS `37`,
-  `h`.`38` AS `38`,
-  `h`.`39` AS `39`,
-  `h`.`40` AS `40`,
-  `h`.`41` AS `41`,
-  `h`.`42` AS `42`,
-  `h`.`43` AS `43`,
-  `h`.`44` AS `44`,
-  `h`.`45` AS `45`,
-  `h`.`46` AS `46`,
-  `h`.`47` AS `47`,
-  `h`.`48` AS `48`,
-  `h`.`49` AS `49`,
-  `h`.`50` AS `50`,
-  `h`.`51` AS `51`,
-  `h`.`52` AS `52`,
-  `h`.`53` AS `53`,
-  `h`.`54` AS `54`,
-  `h`.`55` AS `55`,
-  `h`.`56` AS `56`,
-  `h`.`57` AS `57`,
-  `h`.`58` AS `58`,
-  `h`.`59` AS `59`,
-  `h`.`60` AS `60`,
-  `h`.`61` AS `61`,
-  `h`.`62` AS `62`,
-  `h`.`63` AS `63`,
-  `h`.`64` AS `64`,
-  `h`.`65` AS `65`,
-  `h`.`66` AS `66`,
-  `h`.`67` AS `67`,
-  `h`.`68` AS `68`,
-  `h`.`69` AS `69`,
-  `h`.`70` AS `70`,
-  `h`.`71` AS `71`,
-  `h`.`72` AS `72`,
-  `h`.`73` AS `73`,
-  `h`.`74` AS `74`,
-  `h`.`75` AS `75`,
-  `h`.`76` AS `76`,
-  `h`.`77` AS `77`,
-  `h`.`78` AS `78`,
-  `h`.`79` AS `79`,
-  `h`.`80` AS `80`,
-  `h`.`81` AS `81`,
-  `h`.`82` AS `82`,
-  `h`.`83` AS `83`,
-  `h`.`84` AS `84`,
-  `h`.`85` AS `85`,
-  `h`.`86` AS `86`,
-  `h`.`87` AS `87`,
-  `h`.`88` AS `88`,
-  `h`.`89` AS `89`,
-  `h`.`90` AS `90`,
-  `h`.`91` AS `91`,
-  `h`.`92` AS `92`,
-  `h`.`93` AS `93`,
-  `h`.`94` AS `94`,
-  `h`.`95` AS `95`,
-  `h`.`96` AS `96`,
-  `h`.`97` AS `97`,
-  `h`.`98` AS `98`,
-  `h`.`99` AS `99`,
-  `h`.`100` AS `100`,
-  `h`.`101` AS `101`,
-  `h`.`102` AS `102`,
-  `h`.`103` AS `103`,
-  `h`.`104` AS `104`,
-  `h`.`105` AS `105`,
-  `h`.`106` AS `106`,
-  `h`.`107` AS `107`,
-  `h`.`108` AS `108`,
-  `h`.`109` AS `109`,
-  `h`.`110` AS `110`,
-  `h`.`111` AS `111`,
-  `h`.`112` AS `112`,
-  `h`.`113` AS `113`,
-  `h`.`114` AS `114`,
-  `h`.`115` AS `115`,
-  `h`.`116` AS `116`,
-  `h`.`117` AS `117`,
-  `h`.`118` AS `118`,
-  `h`.`119` AS `119`,
-  `h`.`120` AS `120`,
-  `h`.`121` AS `121`,
-  `h`.`122` AS `122`,
-  `h`.`123` AS `123`,
-  `h`.`124` AS `124`,
-  `h`.`125` AS `125`,
-  `h`.`126` AS `126`,
-  `h`.`127` AS `127`,
-  `h`.`128` AS `128`,
-  `h`.`129` AS `129`,
-  `h`.`130` AS `130`,
-  `h`.`131` AS `131`,
-  `h`.`132` AS `132`,
-  `h`.`133` AS `133`,
-  `h`.`134` AS `134`,
-  `h`.`135` AS `135`,
-  `h`.`136` AS `136`,
-  `h`.`137` AS `137`,
-  `h`.`138` AS `138`,
-  `h`.`139` AS `139`,
-  `h`.`140` AS `140`,
-  `h`.`141` AS `141`,
-  `h`.`142` AS `142`,
-  `h`.`143` AS `143`,
-  `h`.`144` AS `144`,
-  `h`.`145` AS `145`,
-  `h`.`146` AS `146`,
-  `h`.`147` AS `147`,
-  `h`.`148` AS `148`,
-  `h`.`149` AS `149`,
-  `h`.`150` AS `150`,
-  `h`.`151` AS `151`,
-  `h`.`152` AS `152`,
-  `h`.`153` AS `153`,
-  `h`.`154` AS `154`,
-  `h`.`155` AS `155`,
-  `h`.`156` AS `156`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0001))
-    AS `d015`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0002))
-    AS `d014`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0004))
-    AS `d013`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0008))
-    AS `d012`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0010))
-    AS `d011`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0020))
-    AS `d010`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0040))
-    AS `d09`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0080))
-    AS `d08`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0100))
-    AS `d07`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0200))
-    AS `d06`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0400))
-    AS `d05`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0800))
-    AS `d04`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x1000))
-    AS `d03`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x2000))
-    AS `d02`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x4000))
-    AS `d01`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`149`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x8000))
-    AS `d00`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0001))
-    AS `d115`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0002))
-    AS `d114`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0004))
-    AS `d113`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0008))
-    AS `d112`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0010))
-    AS `d111`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0020))
-    AS `d110`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0040))
-    AS `d19`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0080))
-    AS `d18`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0100))
-    AS `d17`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0200))
-    AS `d16`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0400))
-    AS `d15`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0800))
-    AS `d14`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x1000))
-    AS `d13`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x2000))
-    AS `d12`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x4000))
-    AS `d11`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`150`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x8000))
-    AS `d10`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0001))
-    AS `d215`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0002))
-    AS `d214`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0004))
-    AS `d213`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0008))
-    AS `d212`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0010))
-    AS `d211`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0020))
-    AS `d210`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0040))
-    AS `d29`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0080))
-    AS `d28`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0100))
-    AS `d27`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0200))
-    AS `d26`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0400))
-    AS `d25`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0800))
-    AS `d24`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x1000))
-    AS `d23`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x2000))
-    AS `d22`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x4000))
-    AS `d21`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`151`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x8000))
-    AS `d20`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0001))
-    AS `d315`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0002))
-    AS `d314`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0004))
-    AS `d313`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0008))
-    AS `d312`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0010))
-    AS `d311`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0020))
-    AS `d310`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0040))
-    AS `d39`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0080))
-    AS `d38`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0100))
-    AS `d37`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0200))
-    AS `d36`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0400))
-    AS `d35`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0800))
-    AS `d34`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x1000))
-    AS `d33`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x2000))
-    AS `d32`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x4000))
-    AS `d31`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`152`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x8000))
-    AS `d30`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0001))
-    AS `d415`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0002))
-    AS `d414`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0004))
-    AS `d413`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0008))
-    AS `d412`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0010))
-    AS `d411`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0020))
-    AS `d410`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0040))
-    AS `d49`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0080))
-    AS `d48`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0100))
-    AS `d47`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0200))
-    AS `d46`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0400))
-    AS `d45`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0800))
-    AS `d44`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x1000))
-    AS `d43`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x2000))
-    AS `d42`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x4000))
-    AS `d41`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`153`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x8000))
-    AS `d40`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0001))
-    AS `d515`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0002))
-    AS `d514`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0004))
-    AS `d513`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0008))
-    AS `d512`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0010))
-    AS `d511`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0020))
-    AS `d510`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0040))
-    AS `d59`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0080))
-    AS `d58`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0100))
-    AS `d57`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0200))
-    AS `d56`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0400))
-    AS `d55`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0800))
-    AS `d54`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x1000))
-    AS `d53`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x2000))
-    AS `d52`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x4000))
-    AS `d51`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`154`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x8000))
-    AS `d50`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0001))
-    AS `d615`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0002))
-    AS `d614`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0004))
-    AS `d613`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0008))
-    AS `d612`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0010))
-    AS `d611`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0020))
-    AS `d610`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0040))
-    AS `d69`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0080))
-    AS `d68`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0100))
-    AS `d67`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0200))
-    AS `d66`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0400))
-    AS `d65`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0800))
-    AS `d64`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x1000))
-    AS `d63`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x2000))
-    AS `d62`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x4000))
-    AS `d61`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`155`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x8000))
-    AS `d60`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0001))
-    AS `d715`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0002))
-    AS `d714`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0004))
-    AS `d713`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0008))
-    AS `d712`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0010))
-    AS `d711`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0020))
-    AS `d710`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0040))
-    AS `d79`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0080))
-    AS `d78`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0100))
-    AS `d77`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0200))
-    AS `d76`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0400))
-    AS `d75`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x0800))
-    AS `d74`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x1000))
-    AS `d73`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x2000))
-    AS `d72`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x4000))
-    AS `d71`,
-  bit_count(
-    (lpad(
-       conv(
-         hex(`h`.`156`),
-         16,
-         2),
-       (length('0000') * 4),
-       '0') & 0x8000))
-    AS `d70`
-FROM
-  (`t_data` `u` LEFT JOIN `t_hg_data` `h` ON ((`u`.`date` = `h`.`date`)))
-WHERE
-  (`u`.`date` > (now() - INTERVAL 2 WEEK))
-ORDER BY
-  `u`.`date` DESC;
-
-
+CREATE OR REPLACE VIEW `v_data`
+AS
+   SELECT ifnull(`u`.`id`, `h`.`id`) AS `id`,
+          ifnull(`u`.`date`, `h`.`date`) AS `date`,
+          ifnull(`u`.`frame`, convert(`h`.`frame` USING utf8)) AS `frame`,
+          `u`.`analog1` AS `analog1`,
+          `u`.`analog2` AS `analog2`,
+          `u`.`analog3` AS `analog3`,
+          `u`.`analog4` AS `analog4`,
+          `u`.`analog5` AS `analog5`,
+          `u`.`analog6` AS `analog6`,
+          `u`.`analog7` AS `analog7`,
+          `u`.`analog8` AS `analog8`,
+          `u`.`analog9` AS `analog9`,
+          `u`.`analog10` AS `analog10`,
+          `u`.`analog11` AS `analog11`,
+          `u`.`analog12` AS `analog12`,
+          `u`.`analog13` AS `analog13`,
+          `u`.`analog14` AS `analog14`,
+          `u`.`analog15` AS `analog15`,
+          `u`.`analog16` AS `analog16`,
+          `u`.`digital1` AS `digital1`,
+          `u`.`digital2` AS `digital2`,
+          `u`.`digital3` AS `digital3`,
+          `u`.`digital4` AS `digital4`,
+          `u`.`digital5` AS `digital5`,
+          `u`.`digital6` AS `digital6`,
+          `u`.`digital7` AS `digital7`,
+          `u`.`digital8` AS `digital8`,
+          `u`.`digital9` AS `digital9`,
+          `u`.`digital10` AS `digital10`,
+          `u`.`digital11` AS `digital11`,
+          `u`.`digital12` AS `digital12`,
+          `u`.`digital13` AS `digital13`,
+          `u`.`digital14` AS `digital14`,
+          `u`.`digital15` AS `digital15`,
+          `u`.`digital16` AS `digital16`,
+          `u`.`speed1` AS `speed1`,
+          `u`.`speed2` AS `speed2`,
+          `u`.`speed3` AS `speed3`,
+          `u`.`speed4` AS `speed4`,
+          `u`.`power1` AS `power1`,
+          `u`.`power2` AS `power2`,
+          `u`.`energy1` AS `energy1`,
+          `u`.`energy2` AS `energy2`,
+          `h`.`1` AS `1`,
+          `h`.`2` AS `2`,
+          `h`.`3` AS `3`,
+          `h`.`4` AS `4`,
+          `h`.`5` AS `5`,
+          `h`.`6` AS `6`,
+          `h`.`7` AS `7`,
+          `h`.`8` AS `8`,
+          `h`.`9` AS `9`,
+          `h`.`10` AS `10`,
+          `h`.`11` AS `11`,
+          `h`.`12` AS `12`,
+          `h`.`13` AS `13`,
+          `h`.`14` AS `14`,
+          `h`.`15` AS `15`,
+          `h`.`16` AS `16`,
+          `h`.`17` AS `17`,
+          `h`.`18` AS `18`,
+          `h`.`19` AS `19`,
+          `h`.`20` AS `20`,
+          `h`.`21` AS `21`,
+          `h`.`22` AS `22`,
+          `h`.`23` AS `23`,
+          `h`.`24` AS `24`,
+          `h`.`25` AS `25`,
+          `h`.`26` AS `26`,
+          `h`.`27` AS `27`,
+          `h`.`28` AS `28`,
+          `h`.`29` AS `29`,
+          `h`.`30` AS `30`,
+          `h`.`31` AS `31`,
+          `h`.`32` AS `32`,
+          `h`.`33` AS `33`,
+          `h`.`34` AS `34`,
+          `h`.`35` AS `35`,
+          `h`.`36` AS `36`,
+          `h`.`37` AS `37`,
+          `h`.`38` AS `38`,
+          `h`.`39` AS `39`,
+          `h`.`40` AS `40`,
+          `h`.`41` AS `41`,
+          `h`.`42` AS `42`,
+          `h`.`43` AS `43`,
+          `h`.`44` AS `44`,
+          `h`.`45` AS `45`,
+          `h`.`46` AS `46`,
+          `h`.`47` AS `47`,
+          `h`.`48` AS `48`,
+          `h`.`49` AS `49`,
+          `h`.`50` AS `50`,
+          `h`.`51` AS `51`,
+          `h`.`52` AS `52`,
+          `h`.`53` AS `53`,
+          `h`.`54` AS `54`,
+          `h`.`55` AS `55`,
+          `h`.`56` AS `56`,
+          `h`.`57` AS `57`,
+          `h`.`58` AS `58`,
+          `h`.`59` AS `59`,
+          `h`.`60` AS `60`,
+          `h`.`61` AS `61`,
+          `h`.`62` AS `62`,
+          `h`.`63` AS `63`,
+          `h`.`64` AS `64`,
+          `h`.`65` AS `65`,
+          `h`.`66` AS `66`,
+          `h`.`67` AS `67`,
+          `h`.`68` AS `68`,
+          `h`.`69` AS `69`,
+          `h`.`70` AS `70`,
+          `h`.`71` AS `71`,
+          `h`.`72` AS `72`,
+          `h`.`73` AS `73`,
+          `h`.`74` AS `74`,
+          `h`.`75` AS `75`,
+          `h`.`76` AS `76`,
+          `h`.`77` AS `77`,
+          `h`.`78` AS `78`,
+          `h`.`79` AS `79`,
+          `h`.`80` AS `80`,
+          `h`.`81` AS `81`,
+          `h`.`82` AS `82`,
+          `h`.`83` AS `83`,
+          `h`.`84` AS `84`,
+          `h`.`85` AS `85`,
+          `h`.`86` AS `86`,
+          `h`.`87` AS `87`,
+          `h`.`88` AS `88`,
+          `h`.`89` AS `89`,
+          `h`.`90` AS `90`,
+          `h`.`91` AS `91`,
+          `h`.`92` AS `92`,
+          `h`.`93` AS `93`,
+          `h`.`94` AS `94`,
+          `h`.`95` AS `95`,
+          `h`.`96` AS `96`,
+          `h`.`97` AS `97`,
+          `h`.`98` AS `98`,
+          `h`.`99` AS `99`,
+          `h`.`100` AS `100`,
+          `h`.`101` AS `101`,
+          `h`.`102` AS `102`,
+          `h`.`103` AS `103`,
+          `h`.`104` AS `104`,
+          `h`.`105` AS `105`,
+          `h`.`106` AS `106`,
+          `h`.`107` AS `107`,
+          `h`.`108` AS `108`,
+          `h`.`109` AS `109`,
+          `h`.`110` AS `110`,
+          `h`.`111` AS `111`,
+          `h`.`112` AS `112`,
+          `h`.`113` AS `113`,
+          `h`.`114` AS `114`,
+          `h`.`115` AS `115`,
+          `h`.`116` AS `116`,
+          `h`.`117` AS `117`,
+          `h`.`118` AS `118`,
+          `h`.`119` AS `119`,
+          `h`.`120` AS `120`,
+          `h`.`121` AS `121`,
+          `h`.`122` AS `122`,
+          `h`.`123` AS `123`,
+          `h`.`124` AS `124`,
+          `h`.`125` AS `125`,
+          `h`.`126` AS `126`,
+          `h`.`127` AS `127`,
+          `h`.`128` AS `128`,
+          `h`.`129` AS `129`,
+          `h`.`130` AS `130`,
+          `h`.`131` AS `131`,
+          `h`.`132` AS `132`,
+          `h`.`133` AS `133`,
+          `h`.`134` AS `134`,
+          `h`.`135` AS `135`,
+          `h`.`136` AS `136`,
+          `h`.`137` AS `137`,
+          `h`.`138` AS `138`,
+          `h`.`139` AS `139`,
+          `h`.`140` AS `140`,
+          `h`.`141` AS `141`,
+          `h`.`142` AS `142`,
+          `h`.`143` AS `143`,
+          `h`.`144` AS `144`,
+          `h`.`145` AS `145`,
+          `h`.`146` AS `146`,
+          `h`.`147` AS `147`,
+          `h`.`148` AS `148`,
+          `h`.`149` AS `149`,
+          `h`.`150` AS `150`,
+          `h`.`151` AS `151`,
+          `h`.`152` AS `152`,
+          `h`.`153` AS `153`,
+          `h`.`154` AS `154`,
+          `h`.`155` AS `155`,
+          `h`.`156` AS `156`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x0001))
+          + 15
+             AS `d015`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x0002))
+          + 14
+             AS `d014`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x0004))
+          + 13
+             AS `d013`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x0008))
+          + 12
+             AS `d012`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x0010))
+          + 11
+             AS `d011`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x0020))
+          + 10
+             AS `d010`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x0040))
+          + 9
+             AS `d09`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x0080))
+          + 8
+             AS `d08`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x0100))
+          + 7
+             AS `d07`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x0200))
+          + 6
+             AS `d06`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x0400))
+          + 5
+             AS `d05`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x0800))
+          + 4
+             AS `d04`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x1000))
+          + 3
+             AS `d03`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x2000))
+          + 2
+             AS `d02`,
+            bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x4000))
+          + 1
+             AS `d01`,
+          bit_count((lpad(conv(hex(`h`.`149`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x8000))
+             AS `d00`,
+            bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                            (length('0000') * 4),
+                            '0') & 0x0001))+ 15
+             AS `d115`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2), 
+                          (length('0000') * 4),
+                          '0') & 0x0002))+14
+             AS `d114`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0004))+13
+             AS `d113`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0008))+12
+             AS `d112`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0010))+11
+             AS `d111`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0020))+10
+             AS `d110`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0040))+9
+             AS `d19`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0080))+8
+             AS `d18`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0100))+7
+             AS `d17`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0200))+6
+             AS `d16`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0400))+5
+             AS `d15`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0800))+4
+             AS `d14`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x1000))+3
+             AS `d13`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x2000))+2
+             AS `d12`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x4000))+1
+             AS `d11`,
+          bit_count((lpad(conv(hex(`h`.`150`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x8000))
+             AS `d10`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0001))+15
+             AS `d215`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0002))+14
+             AS `d214`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0004))+13
+             AS `d213`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0008))+12
+             AS `d212`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0010))+11
+             AS `d211`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0020))+10
+             AS `d210`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0040))+9
+             AS `d29`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0080))+8
+             AS `d28`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0100))+7
+             AS `d27`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0200))+6
+             AS `d26`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0400))+5
+             AS `d25`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0800))+4
+             AS `d24`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x1000))+3
+             AS `d23`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x2000))+2
+             AS `d22`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x4000))+1
+             AS `d21`,
+          bit_count((lpad(conv(hex(`h`.`151`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x8000))
+             AS `d20`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0001))+15
+             AS `d315`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0002))+14
+             AS `d314`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0004))+13
+             AS `d313`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0008))+12
+             AS `d312`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0010))+11
+             AS `d311`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0020))+10
+             AS `d310`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0040))+9
+             AS `d39`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0080))+8
+             AS `d38`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0100))+7
+             AS `d37`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0200))+6
+             AS `d36`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0400))+5
+             AS `d35`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0800))+4
+             AS `d34`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x1000))+3
+             AS `d33`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x2000))+2
+             AS `d32`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x4000))+1
+             AS `d31`,
+          bit_count((lpad(conv(hex(`h`.`152`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x8000))
+             AS `d30`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0001))+15
+             AS `d415`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0002))+14
+             AS `d414`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0004))+13
+             AS `d413`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0008))+12
+             AS `d412`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0010))+11
+             AS `d411`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0020))+10
+             AS `d410`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0040))+9
+             AS `d49`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0080))+8
+             AS `d48`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0100))+7
+             AS `d47`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0200))+6
+             AS `d46`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0400))+5
+             AS `d45`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0800))+4
+             AS `d44`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x1000))+3
+             AS `d43`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x2000))+2
+             AS `d42`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x4000))+1
+             AS `d41`,
+          bit_count((lpad(conv(hex(`h`.`153`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x8000))
+             AS `d40`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0001))+15
+             AS `d515`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0002))+14
+             AS `d514`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0004))+13
+             AS `d513`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0008))+12
+             AS `d512`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0010))+11
+             AS `d511`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0020))+10
+             AS `d510`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0040))+9
+             AS `d59`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0080))+8
+             AS `d58`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0100))+7
+             AS `d57`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0200))+6
+             AS `d56`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0400))+5
+             AS `d55`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0800))+4
+             AS `d54`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x1000))+3
+             AS `d53`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x2000))+2
+             AS `d52`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x4000))+1
+             AS `d51`,
+          bit_count((lpad(conv(hex(`h`.`154`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x8000))
+             AS `d50`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0001))+15
+             AS `d615`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0002))+14
+             AS `d614`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0004))+13
+             AS `d613`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0008))+12
+             AS `d612`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0010))+11
+             AS `d611`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0020))+10
+             AS `d610`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0040))+9
+             AS `d69`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0080))+8
+             AS `d68`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0100))+7
+             AS `d67`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0200))+6
+             AS `d66`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0400))+5
+             AS `d65`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0800))+4
+             AS `d64`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x1000))+3
+             AS `d63`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x2000))+2
+             AS `d62`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x4000))+1
+             AS `d61`,
+          bit_count((lpad(conv(hex(`h`.`155`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x8000))
+             AS `d60`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0001))+15
+             AS `d715`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0002))+14
+             AS `d714`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0004))+13
+             AS `d713`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0008))+12
+             AS `d712`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0010))+11
+             AS `d711`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0020))+10
+             AS `d710`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0040))+9
+             AS `d79`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0080))+8
+             AS `d78`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0100))+7
+             AS `d77`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0200))+6
+             AS `d76`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0400))+5
+             AS `d75`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x0800))+4
+             AS `d74`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x1000))+3
+             AS `d73`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x2000))+2
+             AS `d72`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x4000))+1
+             AS `d71`,
+          bit_count((lpad(conv(hex(`h`.`156`), 16, 2),
+                          (length('0000') * 4),
+                          '0') & 0x8000))
+             AS `d70`
+     FROM (`t_data` `u`
+           LEFT JOIN `t_hg_data` `h` ON ((`u`.`date` = `h`.`date`)))
+    WHERE (`u`.`date` > (now() - INTERVAL 2 WEEK))
+   ORDER BY `u`.`date` DESC;
 
 
 ------------------------------------------------------------------
