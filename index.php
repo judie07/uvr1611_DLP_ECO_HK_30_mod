@@ -18,9 +18,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.6, minimum-scale=0.6, maximum-scale=1">
     <title>UVR1611 Data Logger Pro</title>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/datepicker.de.js"></script>
     <script type="text/javascript" src="js/charts.js"></script>
     <script type="text/javascript" src="js/toolbar.js"></script>
@@ -30,9 +31,9 @@
 	<link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.9.2.custom.min.css">
 	
     <!-- offline gviz -->
-	<link src="gviz_tooltip.css" rel="stylesheet">
-    <script type="text/javascript" src="jsapi.js"></script>
-    <script type="text/javascript" src="uds_api_contents.js"></script>
+	<link src="js/gviz_tooltip.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jsapi.js"></script>
+    <script type="text/javascript" src="js/uds_api_contents.js"></script>
     <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script> -->
 	
   </head>
@@ -62,7 +63,7 @@
 	<div id="toolbar">
 		<button id="home">Hauptmenü</button>
 		<button id="backToChart">Zurück</button>
-		<input id="datepicker"/>
+		<input id="datepicker" />
 		<div id="period">
 			<input type="radio" id="week1" name="week" value="day" checked="checked"/><label for="week1">Tag</label>
 			<input type="radio" id="week2" name="week" value="week" /><label for="week2">Woche</label>

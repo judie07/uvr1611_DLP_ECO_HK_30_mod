@@ -208,6 +208,7 @@ class Database
 			}
 			$result->close();
 		}
+		
 		return $rows;
 	}
 	

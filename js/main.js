@@ -322,13 +322,15 @@ var menu = {
 		}
 	}
 
-	google.load('visualization', '1.0', {'packages':['corechart']});
+	
+	
+	//google.load('visualization', '1.0', {'packages':['corechart']});
 
 	//Set a callback to run when the Google Visualization API is loaded.
-	google.setOnLoadCallback(googleLoaded);
+	//google.setOnLoadCallback(googleLoaded);
 	
 	
-	function googleLoaded() {
+	//function googleLoaded() {
 
 		menu.init();
 
@@ -338,4 +340,4 @@ var menu = {
 			
 			$(window).on("hashchange", menu.handle);
 		});
-      }
+     // }
