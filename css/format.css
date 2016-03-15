@@ -134,7 +134,7 @@ div.hover > div.icon, div.active > div.icon {
 	display:block;
 	left: 50%;
 	margin-top:5px;
-	margin-left:-75px;
+	margin-left:-200px;
 	width:150px;
 	text-align:center;
 	font-size: 1.5em;
@@ -163,7 +163,7 @@ div.hover > div.icon, div.active > div.icon {
 }
 
 #period {
-	right: 150px;
+	right: 220px;
 	position:absolute;
 }
 

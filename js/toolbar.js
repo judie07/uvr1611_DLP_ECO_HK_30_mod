@@ -5,8 +5,10 @@ var toolbar = {
 		this.home = $("#home");
 		this.backToChart = $("#backToChart");
 		this.back = $("#back");
+		this.back1 = $("#back1");
 		this.today = $("#date");
 		this.forward = $("#forward");
+		this.forward1 = $("#forward1");
 		this.datepicker = $("#datepicker");
 		this.buttonset = $("#buttonset");
 		this.period = $("#period");
@@ -30,7 +32,14 @@ var toolbar = {
 		}).click(function (){
 			toolbar.setDate(new Date(toolbar.date.getTime() - 86400000));
 		});
-		
+		this.back1.button({
+			icons: {
+				primary: "ui-icon-carat-1-w"
+			},
+			text: false
+		}).click(function (){
+			toolbar.setDate(new Date(toolbar.date.getTime() - 86400000*7));
+		});
 		// back to chart button
 		this.backToChart.button({
 			icons: {
@@ -55,6 +64,14 @@ var toolbar = {
 			text: false
 		}).click(function (){
 			toolbar.setDate(new Date(toolbar.date.getTime() + 86400000));
+		});
+		this.forward1.button({
+			icons: {
+				primary: "ui-icon-carat-1-e"
+			},
+			text: false
+		}).click(function (){
+			toolbar.setDate(new Date(toolbar.date.getTime() + 86400000*7));
 		});
 		
 		// today button
