@@ -86,7 +86,7 @@ var menu = {
 		{
 			var id = location.hash.substr(1);
 			if(id == "home" || menu.items[id]==null){
-				$("#logo").animate({'top':'50%','left':'50%'});
+				//$("#logo").animate({'top':'50%','left':'15%'});
 				$("#menu").fadeIn();
 				$("body").animate({'background-color':'#EEE'});
 				$("#content").animate({'top':'100%'},function(){
@@ -113,7 +113,7 @@ var menu = {
 						indicator.animate({'top':top});
 					}
 					indicator.animate({'left':left}, function() {
-						$("#logo").animate({'top':230,'left':230});
+						$("#logo").animate({'top':250,'left':230});
 						$("#menu").fadeOut();
 						$("body").animate({'background-color':'#FFF'});
 						$("#content").show().animate({'top':245}, function() {

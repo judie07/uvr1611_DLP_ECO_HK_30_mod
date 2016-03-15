@@ -40,17 +40,13 @@
 
   <body>
 	<div id="contact"><?php include("VERSION"); ?> <a href="https://github.com/s--o--n--y/uvr1611_DLP_ECO_HK_30_mod.git" target="_blank">GitHub</a> <a href="mailto:<?php echo $email; ?>">Kontakt</a></div>
-		<svg id="logo" xmlns="http://www.w3.org/2000/svg"  width="280" height="60">
+		<svg id="logo" xmlns="http://www.w3.org/2000/svg"  width="200" height="60">
 		  <g transform="translate(0,-992.36218)">
-		    <text style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#666666;fill-opacity:1;stroke:none" x="0.49456322" y="1004.2011">
-		    	<tspan x="0.49456322" y="1004.2011" style="font-size:10px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#666666;font-family:Arial">
-		    		UVR<tspan style="font-size:12px;font-weight:normal;fill:#666666;">1611</tspan>
-		    	</tspan>
-		    </text>
+		   
 		    <text style="font-size:28px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#666666;fill-opacity:1;stroke:none;" x="-1.1482943" y="1033.807">
 		    	<tspan x="-1.1482943" y="1033.807" style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#666666;font-family:Arial">
-		    		<tspan style="font-size:32px;fill:#666666">Data Logger</tspan>
-		    		<tspan style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#666666;font-family:Arial"> Pro</tspan>
+		    		<tspan style="font-size:22px;fill:#666666">Data Logger</tspan>
+		    		<tspan style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#666666;font-family:Arial"> Pro</tspan>
 		    	</tspan>
 		    </text>
 		    <text x="-0.13813959" y="1049.5406">
@@ -86,6 +82,9 @@
 	<div id="menu">
 		<div id="indicator"></div>
 	</div>
-	<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=46.77534&lon=13.9632&name=Gnesau&units=si"> </iframe> 
+	<div id="all">
+    <div class="sub"></div>
+	<iframe id="forecast_embed" align="middle" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=46.77534&lon=13.9632&name=Gnesau&units=si"> </iframe> 
+	</div>
 	</body>
 </html>

@@ -18,7 +18,7 @@ body {
 
 
 #menu {
-	top:0;
+	top:250px;
 	bottom:0;
 	right:0;
 	left:0;
@@ -244,4 +244,12 @@ table.chartinfo div.timestamp {
 #mymain > a{
 	color: #444;
 }
-
+#all{
+    width:100%;
+    float:left;
+    text-align:center;
+}
+div.sub, iframe {
+    margin: 0 auto;
+    width: 50%;
+}
