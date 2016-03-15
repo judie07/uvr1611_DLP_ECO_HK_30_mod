@@ -74,6 +74,7 @@ var menu = {
 					});
 			    }
 			});
+	
 		},
 		display: function()
 		{
@@ -339,5 +340,6 @@ var menu = {
 			toolbar.init();
 			
 			$(window).on("hashchange", menu.handle);
+			$("#logo").animate({'top':250,'left':230});
 		});
      // }
