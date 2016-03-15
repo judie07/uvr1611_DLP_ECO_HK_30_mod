@@ -68,12 +68,34 @@ var toolbar = {
 				toolbar.setDate($.datepicker.parseDate("dd.mm.yy",selectedDate));
 			}
 		});
+		//keyboard popup fix mobile
+		$.ui.dialog.prototype._focusTabbable = $.noop;
 		toolbar.setDate(new Date());
 		
 		// init buttonsets
 		this.buttonset.buttonset();
 		this.period.buttonset().change(function(){menu.selectedItem.load()});
 		this.grouping.buttonset().change(function(){menu.selectedItem.load()});
+		
+		// Add event handler when focused on an element with which has datepicker intialised
+	    $('.hasDatepicker').on('focus', function() {
+
+		// store the element for use inside the position function
+		var $target = $(this);
+
+		// get the elements datepicker widget object and set it's position based on the target element
+		$target.datepicker('widget').position({
+
+			my: 'left top',
+			at: 'left bottom',
+			of: $target
+		});
+		$target.blur();
+	 });
+	 $('.hasDatepicker').on('focusOut', function() {
+		// focus diagramm
+		$('#container').focus();
+	 });
 	},
 	setDate: function(newDate)
 	{
@@ -89,6 +111,9 @@ var toolbar = {
 		{
 			this.forward.button("disable");
 		}
+		setTimeout(function () {
+		 $('#datepicker').blur();
+		}, 100);
 	},
 	hideDateNavigation: function()
 	{

@@ -18,6 +18,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.6, minimum-scale=0.6, maximum-scale=1">
     <title>UVR1611 Data Logger Pro</title>
     <script type="text/javascript" src="js/jquery.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
@@ -62,7 +63,7 @@
 	<div id="toolbar">
 		<button id="home">Hauptmenü</button>
 		<button id="backToChart">Zurück</button>
-		<input id="datepicker"/>
+		<input id="datepicker" />
 		<div id="period">
 			<input type="radio" id="week1" name="week" value="day" checked="checked"/><label for="week1">Tag</label>
 			<input type="radio" id="week2" name="week" value="week" /><label for="week2">Woche</label>
