@@ -39,7 +39,7 @@
   </head>
 
   <body>
-	<div id="contact"><?php include("VERSION"); ?> <a href="https://github.com/berwinter/uvr1611" target="_blank">GitHub</a> <a href="mailto:<?php echo $email; ?>">Kontakt</a></div>
+	<div id="contact"><?php include("VERSION"); ?> <a href="https://github.com/s--o--n--y/uvr1611_DLP_ECO_HK_30_mod.git" target="_blank">GitHub</a> <a href="mailto:<?php echo $email; ?>">Kontakt</a></div>
 		<svg id="logo" xmlns="http://www.w3.org/2000/svg"  width="280" height="60">
 		  <g transform="translate(0,-992.36218)">
 		    <text style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#666666;fill-opacity:1;stroke:none" x="0.49456322" y="1004.2011">
@@ -86,5 +86,6 @@
 	<div id="menu">
 		<div id="indicator"></div>
 	</div>
+	<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=46.77534&lon=13.9632&name=Gnesau&units=si"> </iframe> 
 	</body>
 </html>

@@ -116,7 +116,7 @@ var menu = {
 						$("#logo").animate({'top':230,'left':230});
 						$("#menu").fadeOut();
 						$("body").animate({'background-color':'#FFF'});
-						$("#content").show().animate({'top':90}, function() {
+						$("#content").show().animate({'top':245}, function() {
 							$("#content").trigger('complete');
 						});
 						
