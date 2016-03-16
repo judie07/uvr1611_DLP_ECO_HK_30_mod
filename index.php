@@ -19,7 +19,7 @@
   <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.6, minimum-scale=0.6, maximum-scale=1">
-    <title>UVR1611 Data Logger Pro</title>
+    <title>Data Logger Pro</title>
     <script type="text/javascript" src="js/jquery.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/datepicker.de.js"></script>
@@ -34,19 +34,17 @@
 	<link src="js/gviz_tooltip.css" rel="stylesheet">
     <script type="text/javascript" src="js/jsapi.js"></script>
     <script type="text/javascript" src="js/uds_api_contents.js"></script>
-    <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script> -->
-	
   </head>
 
   <body>
-	<div id="contact"><?php include("VERSION"); ?> <a href="https://github.com/s--o--n--y/uvr1611_DLP_ECO_HK_30_mod.git" target="_blank">GitHub</a> <a href="mailto:<?php echo $email; ?>">Kontakt</a></div>
-		<svg id="logo" xmlns="http://www.w3.org/2000/svg"  width="200" height="60">
+  <div id="contentWrap" width="100%" height="100%">
+	<svg id="logo" xmlns="http://www.w3.org/2000/svg"  width="200" height="60">
 		  <g transform="translate(0,-992.36218)">
 		   
-		    <text style="font-size:28px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#666666;fill-opacity:1;stroke:none;" x="-1.1482943" y="1033.807">
+		    <text style="font-size:22px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#666666;fill-opacity:1;stroke:none;" x="-1.1482943" y="1033.807">
 		    	<tspan x="-1.1482943" y="1033.807" style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#666666;font-family:Arial">
-		    		<tspan style="font-size:22px;fill:#666666">Data Logger</tspan>
-		    		<tspan style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#666666;font-family:Arial"> Pro</tspan>
+		    		<tspan style="font-size:20px;fill:#666666">Data Logger</tspan>
+		    		<tspan style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#666666;font-family:Arial"> Pro</tspan>
 		    	</tspan>
 		    </text>
 		    <text x="-0.13813959" y="1049.5406">
@@ -54,7 +52,9 @@
 		    </text>
 		  </g>
 		</svg>
+		<div id="contact"><?php include("VERSION"); ?> <a href="https://github.com/s--o--n--y/uvr1611_DLP_ECO_HK_30_mod.git" target="_blank">GitHub</a> <a href="mailto:<?php echo $email; ?>">Kontakt</a></div>
 	<div id="content">
+		
 	<div id="overlay"></div>
 	<div id="toolbar">
 		<button id="home">Hauptmenü</button>
@@ -78,17 +78,16 @@
 			<button id="forward1">Vor</button>
 		</div>
 	</div>
+	<iframe id="forecast_embed" align="middle" type="text/html" frameborder="0" height="220" src="http://forecast.io/embed/#lat=46.77534&lon=13.9632&name=Gnesau&units=si"> </iframe> 
 	<div id="container">
 	<div id="pages">
 	</div>
 	</div>
 	</div>
 	<div id="menu">
+	
 		<div id="indicator"></div>
 	</div>
-	<div id="all">
-    <div class="sub"></div>
-	<iframe id="forecast_embed" align="middle" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=46.77534&lon=13.9632&name=Gnesau&units=si"> </iframe> 
-	</div>
+	
 	</body>
 </html>

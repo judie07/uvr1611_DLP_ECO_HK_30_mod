@@ -114,10 +114,10 @@ var menu = {
 						indicator.animate({'top':top});
 					}
 					indicator.animate({'left':left}, function() {
-						$("#logo").animate({'top':250,'left':230});
+						//$("#logo").animate({'top':250,'left':230});
 						$("#menu").fadeOut();
 						$("body").animate({'background-color':'#FFF'});
-						$("#content").show().animate({'top':245}, function() {
+						$("#content").show().animate({'top':0}, function() {
 							$("#content").trigger('complete');
 						});
 						
@@ -340,6 +340,6 @@ var menu = {
 			toolbar.init();
 			
 			$(window).on("hashchange", menu.handle);
-			$("#logo").animate({'top':250,'left':230});
+			$("#logo").animate({'top':20,'left':10});
 		});
      // }

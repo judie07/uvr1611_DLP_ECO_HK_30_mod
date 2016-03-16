@@ -11,8 +11,7 @@ body {
 	right:0;
 	bottom:0;
 	top:100%;
-	position:fixed;
-	background-color: #FFF;
+	position:relative;
 	display:none;
 }
 
@@ -83,20 +82,17 @@ div.hover > div.icon, div.active > div.icon {
 }
 
 #logo {
-	top:50%;
-	left:50%;
-	margin-left:-210px;
-	margin-top:-240px;
-	width:400px;
-	height:80px;
-	position: absolute;
+	 display: block;
+    height: 80px;
+    position: absolute;
+    width: 320px;
 }
 
 #contact {
 	color: #444;
 	position:absolute;
 	right:20px;
-	top:10px;
+	top:40px;
 }
 #contact > a{
 	color: #444;
@@ -114,9 +110,9 @@ div.hover > div.icon, div.active > div.icon {
 }
 #container {
 	width:100%;
-	top:37px;
+	top:0px;
 	bottom:0;
-	position:absolute;
+	position:relative;
 	overflow:auto;
 }
 
@@ -125,7 +121,7 @@ div.hover > div.icon, div.active > div.icon {
 	border-bottom: 1px solid #DDD;
 	background-color: #EEE;
 	height: 35px;
-	position:absolute;
+	position:relative;
 	width:100%;
 }
 
@@ -250,6 +246,8 @@ table.chartinfo div.timestamp {
     text-align:center;
 }
 div.sub, iframe {
+   display: block;
     margin: 0 auto;
+    position: relative;
     width: 50%;
 }
