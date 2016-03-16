@@ -121,12 +121,14 @@ var toolbar = {
 			this.date = newDate;
 			this.datepicker.datepicker("setDate", this.date);
 			this.forward.button("enable");
+			this.forward1.button("enable");
 			if(menu.selectedItem)
 				menu.selectedItem.load();
 		}
 		if(newDate.getTime() + 86400000 > (new Date()).getTime())
 		{
 			this.forward.button("disable");
+			this.forward1.button("disable");
 		}
 		setTimeout(function () {
 		 $('#datepicker').blur();

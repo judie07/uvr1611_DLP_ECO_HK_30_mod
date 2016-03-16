@@ -126,29 +126,40 @@ div.hover > div.icon, div.active > div.icon {
 }
 
 #datepicker {
-	position:absolute;
+	position:relative;
 	display:block;
-	left: 50%;
 	margin-top:5px;
-	margin-left:-200px;
 	width:150px;
-	text-align:center;
 	font-size: 1.5em;
+	text-align: center;
+	display: inline-block;
+	margin-left: auto ;
+    margin-right: auto ;
+}
+
+#datepicker_wrapper{
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    text-align: center;
+    width: 41%;
 }
 #buttonset {
-	right: 10px;
-	position:absolute;
+	position:relative;
+	float: right;
 }
 
 #buttonset > button{
 	margin-top:2px;
+	float: left;
 }
 
 #home {
 	margin-top:2px;
-	left: 10px;
 	display:block;
-	position:absolute;
+	position:relative;
+	float: left;
 }
 
 #backToChart {
@@ -159,13 +170,13 @@ div.hover > div.icon, div.active > div.icon {
 }
 
 #period {
-	right: 220px;
-	position:absolute;
+	position:relative;
+	float: right;
 }
 
 #grouping {
-	right: 150px;
-	position:absolute;
+	position:relative;
+	float: left;
 }
 
 #period > label{
