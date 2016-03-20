@@ -278,7 +278,7 @@ class Database
 			$sql .= " FROM v_t_energies AS datasets ";
 			//$sql .= join(" ", $joins);
 			$sql .= " WHERE datasets.date < DATE_ADD(\"$date\",INTERVAL 1 DAY) ".
-					"AND datasets.date > DATE_SUB(\"$date\", INTERVAL 2 YEAR) ".
+					"AND datasets.date > DATE_SUB(\"$date\", INTERVAL 1 YEAR) ".
 					"GROUP BY datasets.date";
 			$sql .= ") AS temp GROUP BY MONTH(temp.date), YEAR(temp.date) ORDER BY temp.date ASC;";
 		}
