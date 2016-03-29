@@ -14,7 +14,7 @@
    width="800"
    height="600"
    id="svg3904"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.48.5 r10040"
    sodipodi:docname="schema.svg">
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -25,16 +25,16 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
+     inkscape:window-width="1053"
+     inkscape:window-height="661"
      id="namedview221"
      showgrid="false"
      inkscape:zoom="1.1125147"
      inkscape:cx="22.915928"
-     inkscape:cy="398.25004"
-     inkscape:window-x="-8"
-     inkscape:window-y="32"
-     inkscape:window-maximized="1"
+     inkscape:cy="146.56797"
+     inkscape:window-x="148"
+     inkscape:window-y="184"
+     inkscape:window-maximized="0"
      inkscape:current-layer="g3925" />
   <metadata
      id="metadata4244">
@@ -1396,6 +1396,7 @@
      x="97.261665">Aktuell: </tspan></text>
 
 
+
 		 #<text
    x="787.90668"
    y="196.16655"
@@ -1664,5 +1665,27 @@
      y="114.00352"
      id="tspan4200-0-4-9-3-9-0"
      style="font-style:oblique;font-size:14px;fill:#333333">? %</tspan></text>
+<text
+   x="119.44384"
+   y="416.12109"
+   id="dfmS"
+   xml:space="preserve"
+   style="font-size:14px;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#333333;font-family:Arial"
+   sodipodi:linespacing="125%"><tspan
+     x="119.44384"
+     y="416.12109"
+     id="tspan4225-7-1-1"
+     style="font-size:14px;font-style:oblique;text-align:end;text-anchor:end;fill:#333333">? °C</tspan></text>
+<text
+   x="309.10425"
+   y="516.79395"
+   id="dfmK"
+   xml:space="preserve"
+   style="font-size:14px;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#333333;font-family:Arial"
+   sodipodi:linespacing="125%"><tspan
+     x="309.10425"
+     y="516.79395"
+     id="tspan4225-7-1-1-1"
+     style="font-size:14px;font-style:oblique;text-align:end;text-anchor:end;fill:#333333">? °C</tspan></text>
 </g>
 </svg>
