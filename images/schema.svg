@@ -25,7 +25,7 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1053"
+     inkscape:window-width="1618"
      inkscape:window-height="661"
      id="namedview221"
      showgrid="false"
@@ -1397,6 +1397,7 @@
 
 
 
+
 		 #<text
    x="787.90668"
    y="196.16655"
@@ -1675,7 +1676,7 @@
      x="119.44384"
      y="416.12109"
      id="tspan4225-7-1-1"
-     style="font-size:14px;font-style:oblique;text-align:end;text-anchor:end;fill:#333333">? °C</tspan></text>
+     style="font-size:14px;font-style:oblique;text-align:end;text-anchor:end;fill:#333333">? l/min</tspan></text>
 <text
    x="309.10425"
    y="516.79395"
@@ -1686,6 +1687,6 @@
      x="309.10425"
      y="516.79395"
      id="tspan4225-7-1-1-1"
-     style="font-size:14px;font-style:oblique;text-align:end;text-anchor:end;fill:#333333">? °C</tspan></text>
+     style="font-size:14px;font-style:oblique;text-align:end;text-anchor:end;fill:#333333">? l/min</tspan></text>
 </g>
 </svg>
