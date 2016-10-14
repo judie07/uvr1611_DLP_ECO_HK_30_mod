@@ -1,11 +1,11 @@
 # This is the upstart config to run the shell script as service
-console output
+#console output
 
-start on runlevel [2345]
-stop on runlevel [!2345]
+#start on runlevel [2345]
+#stop on runlevel [!2345]
 #start on startup
-respawn
-pre-start script
+#respawn
+#pre-start script
 
   # Perform whatever checks you like here (maybe checking
   # '/etc/default/foo' to see if the service is enabled # or not).
@@ -15,11 +15,25 @@ pre-start script
 
   # display an error message to stderr *on the console* and also write
   # the same message to the system log.
-  logger -is -t "$UPSTART_JOB" "ERROR: foo!"
+#  logger -is -t "$UPSTART_JOB" "ERROR: foo!"
 
   # tell Upstart not to start the main process for the job.
 #  exit 1
-end script
+#end script
 
 # correct this path to your needs
-exec /opt/ra5/databases/readHgData.sh
+#exec /opt/ra5/databases/readHgData.sh
+[Unit]
+Description=Read Hargassner Kessel Data
+
+[Service]
+#Environment= MY_ENVIRONMENT_VAR =/path/to/file.config
+User=root
+#Group=root
+WorkingDirectory=/opt/ra5/Heizung/lib/backend
+ExecStart=/bin/bash /opt/ra5/Heizung/lib/backend/readHgData.sh
+#StandardInput=socket
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

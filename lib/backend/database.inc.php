@@ -123,22 +123,23 @@ class Database
 		$i = 1;
 		// build chart query
 		while($statement->fetch()) {
-			$columnNames[] = "c$i";
+			$columnNames[] = "any_value(c$i)";
 			$columns[] = "datasets.$name AS c$i";
 			//$columns[] = "$frame.$name AS c$i";
 			$joins[$frame]   = "INNER JOIN v_data AS $frame ON ($frame.date = datasets.date AND $frame.frame=\"$frame\")";
 			$i++;
 		}
 
-		$sql = "SELECT date, ";
+		$sql = "SELECT any_value(date), ";
 		$sql .= join(", ",$columnNames);
-		$sql .= " FROM (SELECT @row := @row+1 AS rownum, UNIX_TIMESTAMP(datasets.date) AS date, ";
+		$sql .= " FROM (SELECT getFakeId() AS rownum, UNIX_TIMESTAMP(datasets.date) AS date, ";
 		$sql .= join(", ", $columns);
-		$sql .= " FROM (SELECT @row :=0) r, v_data AS datasets ";
+		$sql .= " FROM  v_data AS datasets ";
 		//$sql .= join(" ", $joins);
 		$sql .= " WHERE datasets.date > DATE_SUB(\"$date\", INTERVAL $period DAY) ".
-				"AND datasets.date < DATE_ADD(\"$date\", INTERVAL 1 DAY))".
+				"AND datasets.date < DATE_ADD(\"$date\", INTERVAL 1 DAY) limit 2000)".
 				"ranked WHERE rownum %$reduction =1 GROUP BY date;";
+		error_log($sql, 0,"/var/log/phpMy.log");
 		$statement->close();
 		// fetch chart data
 		$rows = array();
@@ -199,7 +200,7 @@ class Database
 		$sql .= " WHERE datasets.date > DATE_SUB(\"$date\", INTERVAL $period DAY) ".
 				"AND datasets.date < DATE_ADD(\"$date\", INTERVAL 1 DAY))".
 				"ranked WHERE rownum %$reduction =1 GROUP BY date;";
-		
+		error_log($sql, 0,"/var/log/phpMy.log");
 		// fetch chart data
 		$rows = array();
 		if($result = $this->mysqli->query($sql)) {
@@ -227,6 +228,7 @@ class Database
 			   "WHERE t_max.frame=\"$frame\" AND t_max.date < DATE_ADD(\"$date\", INTERVAL 1 DAY) ".
 			   "AND t_max.date > DATE_SUB(\"$date\", INTERVAL 30 DAY);";
 	
+		error_log($sql, 0,"/var/log/phpMy.log");
 		// fetch chart data
 		$rows = array();
 		if($result = $this->mysqli->query($sql)) {
@@ -250,6 +252,7 @@ class Database
 		// get the columns of a chart
 		$statement = $this->mysqli->prepare("SELECT frame, type FROM t_names_of_charts ".
 											"WHERE chart_id=? ORDER BY t_names_of_charts.order ASC;");
+		error_log($statement, 0,"/var/log/phpMy.log");
 		$statement->bind_param('i', $chartId);
 		$statement->execute();
 		$statement->bind_result($frame, $name);
@@ -263,27 +266,27 @@ class Database
 		// build chart query
 		while($statement->fetch()) {
 			$sums[] = "SUM(c$i)";
-			$columns[] = "datasets.$name AS c$i";
+			$columns[] = "any_value(datasets.$name) AS c$i";
 			//$columns[] = "$frame.$name AS c$i";
 			$joins[$frame] = "INNER JOIN v_t_energies AS $frame ON ($frame.date = datasets.date AND $frame.frame=\"$frame\")";
 			$i++;
 		}
 
 		if($grouping=="months") {
-			$sql = "SELECT DATE_FORMAT(temp.date, '%b 20%y') AS date, ";
+			$sql = "SELECT DATE_FORMAT(any_value(temp.date), '%b 20%y') AS date, ";
 			$sql .= join(", ", $sums);
 			$sql .= " FROM (";
-			$sql .= "SELECT datasets.date, ";
+			$sql .= "SELECT any_value(datasets.date) AS date, ";
 			$sql .= join(", ", $columns);
 			$sql .= " FROM v_t_energies AS datasets ";
 			//$sql .= join(" ", $joins);
 			$sql .= " WHERE datasets.date < DATE_ADD(\"$date\",INTERVAL 1 DAY) ".
 					"AND datasets.date > DATE_SUB(\"$date\", INTERVAL 1 YEAR) ".
 					"GROUP BY datasets.date";
-			$sql .= ") AS temp GROUP BY MONTH(temp.date), YEAR(temp.date) ORDER BY temp.date ASC;";
+			$sql .= ") AS temp GROUP BY MONTH(any_value(temp.date)), YEAR(any_value(temp.date)) ORDER BY any_value(temp.date) ASC;";
 		}
 		else {
-			$sql = "SELECT DATE_FORMAT(datasets.date, '%d. %b') AS date, ";
+			$sql = "SELECT DATE_FORMAT(any_value(datasets.date), '%d. %b') AS date, ";
 			$sql .= join(", ", $columns);
 			$sql .= " FROM v_t_energies AS datasets ";
 			//$sql .= join(" ", $joins);
@@ -292,7 +295,7 @@ class Database
 					"GROUP BY datasets.date ORDER BY datasets.date ASC;";
 		}
 		$statement->close();
-
+		error_log($sql, 0,"/var/log/phpMy.log");
 		// fetch chart data
 		$rows = array();
 		if($result = $this->mysqli->query($sql)) {
@@ -305,6 +308,7 @@ class Database
 		$data = array();
 		$data["rows"] = $rows; 
 		$sql = "SELECT MAX(energy1), SUM(energy1), AVG(energy1), MAX(energy2), SUM(energy2), AVG(energy2), MAX(energy1_1), SUM(energy1_1), AVG(energy1_1), MAX(energy2_1), SUM(energy2_1), AVG(energy2_1), frame FROM v_t_energies GROUP BY frame;";
+		error_log($sql, 0,"/var/log/phpMy.log");
 		if($result = $this->mysqli->query($sql)) {
 			while($r = $result->fetch_array(MYSQLI_NUM)) {
 				$data["statistics"][$r[12]]["energy1"] = array("max" => $r[0],
@@ -323,6 +327,7 @@ class Database
 			$result->close();
 		}
 		$sql = "SELECT MAX(energy1), SUM(energy1), AVG(energy1), MAX(energy2), SUM(energy2), AVG(energy2), MAX(energy1_1), SUM(energy1_1), AVG(energy1_1), MAX(energy2_1), SUM(energy2_1), AVG(energy2_1), frame FROM v_t_energies GROUP BY frame;";
+		error_log($sql, 0,"/var/log/phpMy.log");
 		if($result = $this->mysqli->query($sql)) {
 			while($r = $result->fetch_array(MYSQLI_NUM)) {
 				$data["statistics"][$r[12]]["energy1"] = array("max" => $r[0],
@@ -342,6 +347,7 @@ class Database
 			$result->close();
 		}
 		$sql = "SELECT AVG(energy1), SUM(energy1), AVG(energy2), SUM(energy2), AVG(energy1_1), SUM(energy1_1), AVG(energy2_1), SUM(energy2_1), frame FROM v_t_energies WHERE MONTH(date) IN (10, 11, 12, 1, 2, 3) GROUP BY frame;";
+		error_log($sql, 0,"/var/log/phpMy.log");
 		if($result = $this->mysqli->query($sql)) {
 			while($r = $result->fetch_array(MYSQLI_NUM)) {
 				$data["statistics"][$r[8]]["energy1"]["winter"] = array("avg" => $r[0],
@@ -356,6 +362,7 @@ class Database
 			$result->close();
 		}
 		$sql = "SELECT AVG(energy1), SUM(energy1), AVG(energy2), SUM(energy2), AVG(energy1_1), SUM(energy1_1), AVG(energy2_1), SUM(energy2_1), frame FROM v_t_energies WHERE MONTH(date) IN (4, 5, 6, 7, 8, 9) GROUP BY frame;";
+		error_log($sql, 0,"/var/log/phpMy.log");
 		if($result = $this->mysqli->query($sql)) {
 			while($r = $result->fetch_array(MYSQLI_NUM)) {
 				$data["statistics"][$r[8]]["energy1"]["summer"] = array("avg" => $r[0],

@@ -418,6 +418,8 @@ function create_pid()
 			exec("kill $pid");
 		}
 		else {
+			
+			//error_log("Another process is accessing the bl-net!", 0,"/var/log/phpMy.log");
 			throw new Exception("Another process is accessing the bl-net!");
 		}
 
