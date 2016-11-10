@@ -123,14 +123,14 @@ class Database
 		$i = 1;
 		// build chart query
 		while($statement->fetch()) {
-			$columnNames[] = "any_value(c$i)";
+			$columnNames[] = "any_value(c$i) as c$i";
 			$columns[] = "datasets.$name AS c$i";
 			//$columns[] = "$frame.$name AS c$i";
 			$joins[$frame]   = "INNER JOIN v_data AS $frame ON ($frame.date = datasets.date AND $frame.frame=\"$frame\")";
 			$i++;
 		}
 
-		$sql = "SELECT any_value(date), ";
+		$sql = "SELECT any_value(date) as date, ";
 		$sql .= join(", ",$columnNames);
 		$sql .= " FROM (SELECT getFakeId() AS rownum, UNIX_TIMESTAMP(datasets.date) AS date, ";
 		$sql .= join(", ", $columns);
@@ -386,7 +386,8 @@ class Database
 	 */
 	public function lastDataset()
 	{
-		$result = $this->mysqli->query("SELECT MAX(date) FROM v_data;");
+		//$result = $this->mysqli->query("SELECT MAX(date) FROM v_data;");
+		$result = $this->mysqli->query("SELECT date FROM v_data limit 1;");
 		$last = $result->fetch_array();
 		$result->close();
 		return strtotime($last[0]);
