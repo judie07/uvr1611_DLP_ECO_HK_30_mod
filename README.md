@@ -14,7 +14,7 @@ Die Features sind:
 * Übersichtstabellen zu den Diagrammen
 * Monatliche Trendwerte
 
-Ein Beispiel der Anwendung befindet sich hier: [Demo](http://37.186.11.85:8080/heizung)
+Ein Beispiel der Anwendung befindet sich hier: [Demo](http://37.186.11.85:8080/Heizung)
 
 
 Vorteile der Anwendung
