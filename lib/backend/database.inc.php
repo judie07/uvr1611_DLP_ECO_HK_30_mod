@@ -137,7 +137,7 @@ class Database
 		$sql .= " FROM  v_data AS datasets ";
 		//$sql .= join(" ", $joins);
 		$sql .= " WHERE datasets.date > DATE_SUB(\"$date\", INTERVAL $period DAY) ".
-				"AND datasets.date < DATE_ADD(\"$date\", INTERVAL 1 DAY) limit 2000)".
+				"AND datasets.date < DATE_ADD(\"$date\", INTERVAL 1 DAY) limit 40000)".
 				"ranked WHERE rownum %$reduction =1 GROUP BY date;";
 		error_log($sql, 0,"/var/log/phpMy.log");
 		$statement->close();
@@ -184,18 +184,18 @@ class Database
 		$i = 1;
 		// build chart query
 		while($statement->fetch()) {
-			$columnNames[] = "c$i";
+			$columnNames[] = "any_value(c$i) as c$i";
 			$columns[] = "datasets.$name AS c$i";
 			//$columns[] = "$frame.$name AS c$i";
 			$joins[$frame]   = "INNER JOIN v_data AS $frame ON ($frame.date = datasets.date AND $frame.frame=\"$frame\")";
 			$i++;
 		}
 
-		$sql = "SELECT date, ";
+		$sql = "SELECT any_value(date) as date, ";
 		$sql .= join(", ",$columnNames);
-		$sql .= " FROM (SELECT @row := @row+1 AS rownum, UNIX_TIMESTAMP(datasets.date) AS date, ";
+		$sql .= " FROM (SELECT  getFakeId() AS rownum, UNIX_TIMESTAMP(datasets.date) AS date, ";
 		$sql .= join(", ", $columns);
-		$sql .= " FROM (SELECT @row :=0) r, v_data AS datasets ";
+		$sql .= " FROM v_data AS datasets ";
 		//$sql .= join(" ", $joins);
 		$sql .= " WHERE datasets.date > DATE_SUB(\"$date\", INTERVAL $period DAY) ".
 				"AND datasets.date < DATE_ADD(\"$date\", INTERVAL 1 DAY))".
