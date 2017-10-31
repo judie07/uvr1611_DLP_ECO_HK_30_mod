@@ -30,6 +30,10 @@ if(isset($_GET["id"])) {
 $period = 0;
 if(isset($_GET["period"]) && $_GET["period"] == "week") {
 	$period = 6;
+} else if(isset($_GET["period"]) && $_GET["period"] == "week3") {
+	$period = 12;
+} else if(isset($_GET["period"]) && $_GET["period"] == "month") {
+	$period = 30;
 }
 
 // get grouping

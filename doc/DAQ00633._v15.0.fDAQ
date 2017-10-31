@@ -1,0 +1,298 @@
+<ANALOG>
+	<CHANNEL id='0' name='ZK' unit=''/>
+	<CHANNEL id='1' name='O2' unit='%'/>
+	<CHANNEL id='2' name='O2soll' unit='%'/>
+	<CHANNEL id='3' name='TK' unit='°C'/>
+	<CHANNEL id='4' name='TKsoll' unit='°C'/>
+	<CHANNEL id='5' name='TRG' unit='°C'/>
+	<CHANNEL id='6' name='SZ' unit='%'/>
+	<CHANNEL id='7' name='SZsoll' unit='%'/>
+	<CHANNEL id='8' name='PLK' unit='%'/>
+	<CHANNEL id='9' name='PLKsoll' unit='%'/>
+	<CHANNEL id='10' name='Leistung' unit='%'/>
+	<CHANNEL id='11' name='Förder' unit='%'/>
+	<CHANNEL id='12' name='EsRostPos' unit='°'/>
+	<CHANNEL id='13' name='UD' unit='Pa'/>
+	<CHANNEL id='14' name='GBF' unit='°'/>
+	<CHANNEL id='15' name='I Es' unit='mA'/>
+	<CHANNEL id='16' name='I Ra' unit='mA'/>
+	<CHANNEL id='17' name='I Aa' unit='mA'/>
+	<CHANNEL id='18' name='I EsRost' unit='mA'/>
+	<CHANNEL id='19' name='I VS' unit='mA'/>
+	<CHANNEL id='20' name='Taus' unit='°C'/>
+	<CHANNEL id='21' name='TA Gem.' unit='°C'/>
+	<CHANNEL id='22' name='TPo' unit='°C'/>
+	<CHANNEL id='23' name='TPm' unit='°C'/>
+	<CHANNEL id='24' name='TPu' unit='°C'/>
+	<CHANNEL id='25' name='TFW' unit='°C'/>
+	<CHANNEL id='26' name='TRL' unit='°C'/>
+	<CHANNEL id='27' name='TRLsoll' unit='°C'/>
+	<CHANNEL id='28' name='RLP' unit='%'/>
+	<CHANNEL id='29' name='Tplat' unit='°C'/>
+	<CHANNEL id='30' name='TVL_A' unit='°C'/>
+	<CHANNEL id='31' name='TVLs_A' unit='°C'/>
+	<CHANNEL id='32' name='TRA' unit='°C'/>
+	<CHANNEL id='33' name='TBA' unit='°C'/>
+	<CHANNEL id='34' name='TBs_A' unit='°C'/>
+	<CHANNEL id='35' name='TVL_1' unit='°C'/>
+	<CHANNEL id='36' name='TVL_2' unit='°C'/>
+	<CHANNEL id='37' name='TVLs_1' unit='°C'/>
+	<CHANNEL id='38' name='TVLs_2' unit='°C'/>
+	<CHANNEL id='39' name='TR1' unit='°C'/>
+	<CHANNEL id='40' name='TR2' unit='°C'/>
+	<CHANNEL id='41' name='TB1' unit='°C'/>
+	<CHANNEL id='42' name='TBs_1' unit='°C'/>
+	<CHANNEL id='43' name='TVL_3' unit='°C'/>
+	<CHANNEL id='44' name='TVL_4' unit='°C'/>
+	<CHANNEL id='45' name='TVLs_3' unit='°C'/>
+	<CHANNEL id='46' name='TVLs_4' unit='°C'/>
+	<CHANNEL id='47' name='TR3' unit='°C'/>
+	<CHANNEL id='48' name='TR4' unit='°C'/>
+	<CHANNEL id='49' name='TB2' unit='°C'/>
+	<CHANNEL id='50' name='TBs_2' unit='°C'/>
+	<CHANNEL id='51' name='TVL_5' unit='°C'/>
+	<CHANNEL id='52' name='TVL_6' unit='°C'/>
+	<CHANNEL id='53' name='TVLs_5' unit='°C'/>
+	<CHANNEL id='54' name='TVLs_6' unit='°C'/>
+	<CHANNEL id='55' name='TR5' unit='°C'/>
+	<CHANNEL id='56' name='TR6' unit='°C'/>
+	<CHANNEL id='57' name='TB3' unit='°C'/>
+	<CHANNEL id='58' name='TBs_3' unit='°C'/>
+	<CHANNEL id='59' name='TRs_A' unit='°C'/>
+	<CHANNEL id='60' name='TRs_1' unit='°C'/>
+	<CHANNEL id='61' name='TRs_2' unit='°C'/>
+	<CHANNEL id='62' name='TRs_3' unit='°C'/>
+	<CHANNEL id='63' name='TRs_4' unit='°C'/>
+	<CHANNEL id='64' name='TRs_5' unit='°C'/>
+	<CHANNEL id='65' name='TRs_6' unit='°C'/>
+	<CHANNEL id='66' name='WMZ Vorl.' unit='°C'/>
+	<CHANNEL id='67' name='WMZ Rueckl.' unit='°C'/>
+	<CHANNEL id='68' name='WMZ Durchf.' unit=''/>
+	<CHANNEL id='69' name='WMZ Leist.' unit='KW'/>
+	<CHANNEL id='70' name='VFS Flow' unit='l/min'/>
+	<CHANNEL id='71' name='VFS Temp' unit='°C'/>
+	<CHANNEL id='72' name='IO32 VL' unit='°C'/>
+	<CHANNEL id='73' name='KaskSollTmp_1' unit='°C'/>
+	<CHANNEL id='74' name='KaskSollTmp_2' unit='°C'/>
+	<CHANNEL id='75' name='KaskSollTmp_3' unit='°C'/>
+	<CHANNEL id='76' name='KaskSollTmp_4' unit='°C'/>
+	<CHANNEL id='77' name='KaskIstTmp_1' unit='°C'/>
+	<CHANNEL id='78' name='KaskIstTmp_2' unit='°C'/>
+	<CHANNEL id='79' name='KaskIstTmp_3' unit='°C'/>
+	<CHANNEL id='80' name='KaskIstTmp_4' unit='°C'/>
+	<CHANNEL id='81' name='UsePos' unit=''/>
+	<CHANNEL id='82' name='UseMotSoll' unit='mm'/>
+	<CHANNEL id='83' name='UseMotIst' unit='mm'/>
+	<CHANNEL id='84' name='HKZustand_A' unit=''/>
+	<CHANNEL id='85' name='HKZustand_1' unit=''/>
+	<CHANNEL id='86' name='HKZustand_2' unit=''/>
+	<CHANNEL id='87' name='HKZustand_3' unit=''/>
+	<CHANNEL id='88' name='HKZustand_4' unit=''/>
+	<CHANNEL id='89' name='HKZustand_5' unit=''/>
+	<CHANNEL id='90' name='HKZustand_6' unit=''/>
+	<CHANNEL id='91' name='BoiZustand_A' unit=''/>
+	<CHANNEL id='92' name='BoiZustand_1' unit=''/>
+	<CHANNEL id='93' name='BoiZustand_2' unit=''/>
+	<CHANNEL id='94' name='BoiZustand_3' unit=''/>
+	<CHANNEL id='95' name='PuffZustand' unit=''/>
+	<CHANNEL id='96' name='Puffer_soll' unit='°C'/>
+	<CHANNEL id='97' name='Mode Fw' unit=''/>
+	<CHANNEL id='98' name='I AschRost' unit='mA'/>
+	<CHANNEL id='99' name='AschRostPos' unit='°'/>
+	<CHANNEL id='100' name='ETÜ' unit='°C'/>
+	<CHANNEL id='101' name='TÜB' unit='°C'/>
+	<CHANNEL id='102' name='IO32 521' unit='Pa'/>
+	<CHANNEL id='103' name='IO32 522' unit='Pa'/>
+	<CHANNEL id='104' name='IO32 509' unit='Pa'/>
+	<CHANNEL id='105' name='IO32 510' unit='Pa'/>
+	<CHANNEL id='106' name='NICRNI Res' unit='°C'/>
+	<CHANNEL id='107' name='GBF soll' unit='°'/>
+	<CHANNEL id='108' name='UD rel' unit='%'/>
+	<CHANNEL id='109' name='U_Lambda' unit='mV'/>
+	<CHANNEL id='110' name='Max Leistung' unit='%'/>
+	<CHANNEL id='111' name='Solltmp. ExtHK' unit='°C'/>
+	<CHANNEL id='112' name='BSZ Einschub' unit='h'/>
+	<CHANNEL id='113' name='KaskLZLeisMin_1' unit='Min'/>
+	<CHANNEL id='114' name='KaskLZLeisMin_2' unit='Min'/>
+	<CHANNEL id='115' name='KaskLZLeisMin_3' unit='Min'/>
+	<CHANNEL id='116' name='KaskLZLeisMin_4' unit='Min'/>
+	<CHANNEL id='117' name='KaskLZLeisMax_1' unit='Min'/>
+	<CHANNEL id='118' name='KaskLZLeisMax_2' unit='Min'/>
+	<CHANNEL id='119' name='KaskLZLeisMax_3' unit='Min'/>
+	<CHANNEL id='120' name='KaskLZLeisMax_4' unit='Min'/>
+	<CHANNEL id='121' name='Kask LZLeist_1' unit='h'/>
+	<CHANNEL id='122' name='Kask LZLeist_2' unit='h'/>
+	<CHANNEL id='123' name='Kask LZLeist_3' unit='h'/>
+	<CHANNEL id='124' name='Kask LZLeist_4' unit='h'/>
+	<CHANNEL id='125' name='TÜB2' unit='°C'/>
+	<CHANNEL id='126' name='TRA_A' unit='°C'/>
+	<CHANNEL id='127' name='TRA_1' unit='°C'/>
+	<CHANNEL id='128' name='TRA_2' unit='°C'/>
+	<CHANNEL id='129' name='TRA_3' unit='°C'/>
+	<CHANNEL id='130' name='TRA_4' unit='°C'/>
+	<CHANNEL id='131' name='TRA_5' unit='°C'/>
+	<CHANNEL id='132' name='TRA_6' unit='°C'/>
+	<CHANNEL id='133' name='BSZ_ZUENDUNGEN' unit=''/>
+	<CHANNEL id='134' name='BSZ_LEIST_90' unit='h'/>
+	<CHANNEL id='135' name='BSZ_GLUTERH' unit='h'/>
+	<CHANNEL id='136' name='BSZ_ES_PEL' unit='min'/>
+	<CHANNEL id='137' name='BSZ_LB_ENT' unit='min'/>
+	<CHANNEL id='138' name='Höchste Anf' unit='°C'/>
+	<CHANNEL id='139' name='HKR Anf' unit='°C'/>
+	<CHANNEL id='140' name='Anf. HKR1' unit='°C'/>
+	<CHANNEL id='141' name='Anf. HKR2' unit='°C'/>
+	<CHANNEL id='142' name='Anf. HKR3' unit='°C'/>
+	<CHANNEL id='143' name='Anf. HKR4' unit='°C'/>
+	<CHANNEL id='144' name='Anf. HKR5' unit='°C'/>
+	<CHANNEL id='145' name='Anf. HKR6' unit='°C'/>
+	<CHANNEL id='146' name='Anf. HKR7' unit='°C'/>
+	<CHANNEL id='147' name='Anf. HKR8' unit='°C'/>
+	<CHANNEL id='148' name='FRA Zustand' unit=''/>
+	<CHANNEL id='149' name='FR1 Zustand' unit=''/>
+	<CHANNEL id='150' name='FR2 Zustand' unit=''/>
+	<CHANNEL id='151' name='FR3 Zustand' unit=''/>
+	<CHANNEL id='152' name='FR4 Zustand' unit=''/>
+	<CHANNEL id='153' name='FR5 Zustand' unit=''/>
+	<CHANNEL id='154' name='FR6 Zustand' unit=''/>
+	<CHANNEL id='155' name='BSZ_ENT_KLEIN' unit=''/>
+	<CHANNEL id='156' name='BSZ_STEUERUNG' unit='h'/>
+	<CHANNEL id='157' name='BSZ_HEIZUNG' unit='h'/>
+	<CHANNEL id='158' name='BSZ_ZUENDUNG' unit='h'/>
+	<CHANNEL id='159' name='BSZ_SZ' unit='h'/>
+	<CHANNEL id='160' name='BSZ_AUSTRAG' unit='h'/>
+	<CHANNEL id='161' name='BSZ_AUSTRAG2' unit='h'/>
+	<CHANNEL id='162' name='BSZ_VS' unit='h'/>
+	<CHANNEL id='163' name='BSZ_DS' unit='h'/>
+	<CHANNEL id='164' name='BSZ_ASCHS' unit='h'/>
+	<CHANNEL id='165' name='BSZ_ENTASCH_KL' unit=''/>
+	<CHANNEL id='166' name='BSZ_ENTASCH' unit=''/>
+	<CHANNEL id='167' name='BSZ_ANZ_ASCHS' unit=''/>
+	<CHANNEL id='168' name='BSZ_HEIZUNG_UPD' unit='h'/>
+	<CHANNEL id='169' name='BSZ_SAUGTURBINE' unit='h'/>
+	<CHANNEL id='170' name='Leistungsvorgabe' unit='V'/>
+	<CHANNEL id='171' name='RawPos Es' unit='°'/>
+	<CHANNEL id='172' name='RawPos As' unit='°'/>
+	<CHANNEL id='173' name='TLK' unit='%'/>
+	<CHANNEL id='174' name='TLKsoll' unit='%'/>
+	<CHANNEL id='175' name='I Schrägschn.' unit='mA'/>
+	<CHANNEL id='176' name='PwrC I1' unit='mA'/>
+	<CHANNEL id='177' name='PwrC I2' unit='mA'/>
+	<CHANNEL id='178' name='PwrC I3' unit='mA'/>
+	<CHANNEL id='179' name='PwrC I1 max' unit='mA'/>
+	<CHANNEL id='180' name='PwrC I2 max' unit='mA'/>
+	<CHANNEL id='181' name='PwrC I3 max' unit='mA'/>
+	<CHANNEL id='182' name='PwrC Temp' unit='°C'/>
+	<CHANNEL id='183' name='PwrC U' unit='V'/>
+	<CHANNEL id='184' name='PwrC Status' unit=''/>
+</ANALOG>
+<DIGITAL>
+	<CHANNEL id='0' bit='0' name='Stb'/>
+	<CHANNEL id='0' bit='1' name='NotAus'/>
+	<CHANNEL id='0' bit='2' name='TKS'/>
+	<CHANNEL id='0' bit='4' name='HKPA'/>
+	<CHANNEL id='0' bit='5' name='MAA'/>
+	<CHANNEL id='0' bit='6' name='MAZ'/>
+	<CHANNEL id='0' bit='7' name='HKP1'/>
+	<CHANNEL id='0' bit='8' name='M1A'/>
+	<CHANNEL id='0' bit='9' name='M1Z'/>
+	<CHANNEL id='0' bit='10' name='HKP2'/>
+	<CHANNEL id='0' bit='11' name='M2A'/>
+	<CHANNEL id='0' bit='12' name='M2Z'/>
+	<CHANNEL id='0' bit='13' name='Störung'/>
+	<CHANNEL id='0' bit='14' name='Use MotAktiv'/>
+	<CHANNEL id='0' bit='15' name='Pell Saug'/>
+	<CHANNEL id='1' bit='0' name='L Heiz.'/>
+	<CHANNEL id='1' bit='1' name='Z Heiz.'/>
+	<CHANNEL id='1' bit='2' name='Z Geb.'/>
+	<CHANNEL id='1' bit='3' name='AA Run'/>
+	<CHANNEL id='1' bit='4' name='AA Dir'/>
+	<CHANNEL id='1' bit='5' name='AA Saug'/>
+	<CHANNEL id='1' bit='6' name='ES Run'/>
+	<CHANNEL id='1' bit='7' name='ES Dir'/>
+	<CHANNEL id='1' bit='8' name='RA Run'/>
+	<CHANNEL id='1' bit='9' name='RA Dir'/>
+	<CHANNEL id='1' bit='10' name='Deckel'/>
+	<CHANNEL id='1' bit='11' name='FS Asche'/>
+	<CHANNEL id='1' bit='12' name='INI Asche'/>
+	<CHANNEL id='1' bit='13' name='ER Run'/>
+	<CHANNEL id='1' bit='14' name='AR Run'/>
+	<CHANNEL id='1' bit='15' name='FS Pellets'/>
+	<CHANNEL id='2' bit='0' name='BPA'/>
+	<CHANNEL id='2' bit='1' name='BP1'/>
+	<CHANNEL id='2' bit='2' name='BP2'/>
+	<CHANNEL id='2' bit='3' name='BP3'/>
+	<CHANNEL id='2' bit='4' name='BZPA'/>
+	<CHANNEL id='2' bit='5' name='BZP1'/>
+	<CHANNEL id='2' bit='6' name='BZP2'/>
+	<CHANNEL id='2' bit='7' name='BZP3'/>
+	<CHANNEL id='2' bit='8' name='RLm_auf'/>
+	<CHANNEL id='2' bit='9' name='RLm_zu'/>
+	<CHANNEL id='2' bit='10' name='RL Pumpe'/>
+	<CHANNEL id='2' bit='11' name='SK Aschebox'/>
+	<CHANNEL id='2' bit='12' name='SK RaDeckel'/>
+	<CHANNEL id='2' bit='13' name='SK VsDeckel'/>
+	<CHANNEL id='2' bit='14' name='SK Lager'/>
+	<CHANNEL id='2' bit='15' name='HKP Ext_3'/>
+	<CHANNEL id='3' bit='0' name='HKP3'/>
+	<CHANNEL id='3' bit='1' name='M3A'/>
+	<CHANNEL id='3' bit='2' name='M3Z'/>
+	<CHANNEL id='3' bit='3' name='HKP4'/>
+	<CHANNEL id='3' bit='4' name='M4A'/>
+	<CHANNEL id='3' bit='5' name='M4Z'/>
+	<CHANNEL id='3' bit='6' name='HKP5'/>
+	<CHANNEL id='3' bit='7' name='M5A'/>
+	<CHANNEL id='3' bit='8' name='M5Z'/>
+	<CHANNEL id='3' bit='9' name='HKP6'/>
+	<CHANNEL id='3' bit='10' name='M6A'/>
+	<CHANNEL id='3' bit='11' name='M6Z'/>
+	<CHANNEL id='3' bit='12' name='FLP1'/>
+	<CHANNEL id='3' bit='13' name='FLP2'/>
+	<CHANNEL id='3' bit='14' name='VS/RA2 Run'/>
+	<CHANNEL id='3' bit='15' name='VS/RA2 Dir'/>
+	<CHANNEL id='4' bit='1' name='Entasch gesp.'/>
+	<CHANNEL id='4' bit='2' name='ATW'/>
+	<CHANNEL id='4' bit='3' name='SK Bruecke'/>
+	<CHANNEL id='4' bit='4' name='ExtHK'/>
+	<CHANNEL id='4' bit='5' name='ExtHK_1'/>
+	<CHANNEL id='4' bit='6' name='ExtHK_2'/>
+	<CHANNEL id='4' bit='7' name='ExtHK_3'/>
+	<CHANNEL id='4' bit='8' name='HKP Ext'/>
+	<CHANNEL id='4' bit='9' name='HKP Ext_1'/>
+	<CHANNEL id='4' bit='10' name='HKP Ext_2'/>
+	<CHANNEL id='4' bit='11' name='PuffP'/>
+	<CHANNEL id='4' bit='12' name='FW Freig.'/>
+	<CHANNEL id='4' bit='14' name='HKV'/>
+	<CHANNEL id='4' bit='15' name='DIN_E1'/>
+	<CHANNEL id='5' bit='0' name='VS Deckel'/>
+	<CHANNEL id='5' bit='1' name='DIN_E13'/>
+	<CHANNEL id='5' bit='2' name='DIN_E14'/>
+	<CHANNEL id='5' bit='3' name='DIN_E35'/>
+	<CHANNEL id='5' bit='4' name='KASK1 MinLeist'/>
+	<CHANNEL id='5' bit='5' name='KASK2 MinLeist'/>
+	<CHANNEL id='5' bit='6' name='KASK3 MinLeist'/>
+	<CHANNEL id='5' bit='7' name='KASK4 MinLeist'/>
+	<CHANNEL id='5' bit='8' name='KASK1 MaxLeist'/>
+	<CHANNEL id='5' bit='9' name='KASK2 MaxLeist'/>
+	<CHANNEL id='5' bit='10' name='KASK3 MaxLeist'/>
+	<CHANNEL id='5' bit='11' name='KASK4 MaxLeist'/>
+	<CHANNEL id='5' bit='12' name='KASK1 Run'/>
+	<CHANNEL id='5' bit='13' name='KASK2 Run'/>
+	<CHANNEL id='5' bit='14' name='KASK3 Run'/>
+	<CHANNEL id='5' bit='15' name='KASK4 Run'/>
+	<CHANNEL id='6' bit='0' name='gFlP'/>
+	<CHANNEL id='6' bit='1' name='gFlM auf'/>
+	<CHANNEL id='6' bit='2' name='gFlM zu'/>
+	<CHANNEL id='6' bit='3' name='Schrägschn Run'/>
+	<CHANNEL id='6' bit='4' name='Schrägschn Dir'/>
+	<CHANNEL id='6' bit='5' name='PwrC P1 OK'/>
+	<CHANNEL id='6' bit='6' name='PwrC P2 OK'/>
+	<CHANNEL id='6' bit='7' name='PwrC P3 OK'/>
+	<CHANNEL id='6' bit='8' name='PwrC Stromgrenze'/>
+	<CHANNEL id='6' bit='9' name='PwrC PFC OK'/>
+	<CHANNEL id='6' bit='10' name='KASK5 MinLeist'/>
+	<CHANNEL id='6' bit='11' name='KASK6 MinLeist'/>
+	<CHANNEL id='6' bit='12' name='KASK5 MaxLeist'/>
+	<CHANNEL id='6' bit='13' name='KASK6 MaxLeist'/>
+	<CHANNEL id='6' bit='14' name='KASK5 Run'/>
+	<CHANNEL id='6' bit='15' name='KASK6 Run'/>
+</DIGITAL>

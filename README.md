@@ -14,14 +14,8 @@ Die Features sind:
 * Übersichtstabellen zu den Diagrammen
 * Monatliche Trendwerte
 
-Ein Beispiel der Anwendung befindet sich hier: [Demo](http://berwinter.dyndns.org/uvr1611/)
+Ein Beispiel der Anwendung befindet sich hier: [Demo](http://onestop.duckdns.org:8080/Heizung)
 
-Downloads
-------
-
-* [Stable (v90)](https://github.com/berwinter/uvr1611/archive/v90.zip)
-* [Stable (v81)](https://github.com/berwinter/uvr1611/archive/v80.zip)
-* [Development](https://github.com/berwinter/uvr1611/archive/master.zip)
 
 Vorteile der Anwendung
 ------

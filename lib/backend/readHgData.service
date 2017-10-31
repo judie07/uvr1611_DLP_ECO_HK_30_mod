@@ -1,0 +1,13 @@
+[Unit]
+Description=Hargassner Data Link
+# This will load  only after setting up the network
+After=network-online.target
+[Service]
+User=root
+ExecStart=/usr/bin/byobu -c /opt/ra5/Heizung/lib/backend/readHgData.sh
+ExecStop=/bin/kill -HUP $MAINPID
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+[Install]
+# Needed to run at boot
+WantedBy=multi-user.target

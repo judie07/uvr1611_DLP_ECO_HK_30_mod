@@ -412,12 +412,14 @@ function create_pid()
 {
 	$path = '/tmp/uvr1611-logger.pid';
 	if(file_exists($path)) {
-		// if PID is older than an hour remove it
-		if(time() > (filemtime($path) + 3600)) {
+		// if PID is older 360s remove it
+		if(time() > (filemtime($path) + 360)) {
 			$pid = file_get_contents($path);
 			exec("kill $pid");
 		}
 		else {
+			
+			//error_log("Another process is accessing the bl-net!", 0,"/var/log/phpMy.log");
 			throw new Exception("Another process is accessing the bl-net!");
 		}
 

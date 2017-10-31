@@ -1427,6 +1427,18 @@ AS
    ORDER BY `u`.`date` DESC;
 
 
+
+------------------------------------------------------------------
+--  VIEW v_t_energies
+------------------------------------------------------------------
+CREATE OR REPLACE VIEW `v_t_energies`
+AS
+   SELECT e.*,
+          ifnull(e1.energy1, 0) AS energy1_1,
+          ifnull(e1.energy2, 0) AS energy2_1
+     FROM t_energies e
+          LEFT JOIN `t_energies` `e1`
+             ON (date_sub(`e`.`date`, INTERVAL 1 YEAR) = `e1`.`date`);
 ------------------------------------------------------------------
 --  VIEW v_energies
 ------------------------------------------------------------------
