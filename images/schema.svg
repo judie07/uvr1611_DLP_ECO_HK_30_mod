@@ -14,7 +14,7 @@
    width="800"
    height="600"
    id="svg3904"
-   inkscape:version="0.48.5 r10040"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="schema.svg">
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -30,8 +30,8 @@
      id="namedview221"
      showgrid="false"
      inkscape:zoom="1.1125147"
-     inkscape:cx="22.915928"
-     inkscape:cy="146.56797"
+     inkscape:cx="249.00522"
+     inkscape:cy="121.97834"
      inkscape:window-x="148"
      inkscape:window-y="184"
      inkscape:window-maximized="0"
@@ -1398,6 +1398,7 @@
 
 
 
+
 		 #<text
    x="787.90668"
    y="196.16655"
@@ -1688,5 +1689,18 @@
      y="516.79395"
      id="tspan4225-7-1-1-1"
      style="font-size:14px;font-style:oblique;text-align:end;text-anchor:end;fill:#333333">? l/min</tspan></text>
+<text
+   x="197.36305"
+   y="507.70615"
+   id="abgastemp"
+   xml:space="preserve"
+   style="font-size:14px;line-height:125%;font-family:Arial;letter-spacing:0px;word-spacing:0px;fill:#333333"
+   sodipodi:linespacing="125%"
+   inkscape:transform-center-x="-12.584103"
+   inkscape:transform-center-y="-9.8875098"><tspan
+     x="197.36305"
+     y="507.70615"
+     id="tspan4200-0-4-9-3-9-5"
+     style="font-style:oblique;font-size:14px;fill:#333333">? °C</tspan></text>
 </g>
 </svg>
